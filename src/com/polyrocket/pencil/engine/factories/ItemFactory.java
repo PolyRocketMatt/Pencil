@@ -1,4 +1,4 @@
-package com.polyrocket.pencil.lib;
+package com.polyrocket.pencil.engine.factories;
 
 import com.polyrocket.pencil.engine.exception.PencilException;
 import org.bukkit.Material;

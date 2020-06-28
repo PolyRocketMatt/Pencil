@@ -7,6 +7,8 @@ import org.bukkit.entity.Player;
 
 import java.text.MessageFormat;
 
+import static com.polyrocket.pencil.engine.Pencil.PREFIX;
+
 /**
  * Created by PolyRocketMatt on 27/06/2020.
  */
@@ -48,7 +50,6 @@ public class MessageService extends Service {
         }
     }
 
-    public static String PREFIX = ChatColor.DARK_GRAY + "[" + ChatColor.GOLD + "Pencil" + ChatColor.DARK_GRAY + "] >> ";
     public static String INSUFFICIENT_PERMISSION = MessageType.ERROR.color + "Oops! You don't have the permission to do that!";
     public static String INSUFFICIENT_COMMAND = MessageType.WARNING.color + "Oops! Expected a command and optional arguments!";
     public static String INSUFFICIENT_ARGUMENTS = MessageType.WARNING.color + "Oops! Expected {0} arguments (found {1})!";

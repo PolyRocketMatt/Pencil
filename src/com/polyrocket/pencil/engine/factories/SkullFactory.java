@@ -1,4 +1,4 @@
-package com.polyrocket.pencil.lib;
+package com.polyrocket.pencil.engine.factories;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -130,8 +130,8 @@ public class SkullFactory {
         }
     }
 
-    private static void notNull(Object o, String name) {
-        if (o == null)
+    private static void notNull(Object object, String name) {
+        if (object == null)
             throw new NullPointerException(name + " should not be null!");
     }
 

@@ -8,6 +8,7 @@ import com.polyrocket.pencil.engine.services.EventService;
 import com.polyrocket.pencil.engine.services.MessageService;
 import com.polyrocket.pencil.engine.services.PlayerService;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -86,4 +87,7 @@ public class Pencil extends JavaPlugin {
             throw new PencilException("[Pencil] >> Unexpected error: service doesn't exist! It's advised to make a complete dump and contact a developer!");
         return (EventService) serviceManager.get(2);
     }
+
+    public static String PREFIX = ChatColor.DARK_GRAY + "[" + ChatColor.GOLD + "Pencil" + ChatColor.DARK_GRAY + "] >> ";
+
 }
