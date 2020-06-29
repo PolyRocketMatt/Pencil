@@ -1,0 +1,10 @@
+name: PencilPlugin
+version: ALPHA_0.0.1
+api-version: 1.16
+main: com.github.polyrocket.pencil.Pencil
+description: A lightweight and powerful next generation terrain editor!
+load: POSTWORLD
+author: PolyRocketMatt
+commands:
+  pencil:
+    description: The main pencil command!
