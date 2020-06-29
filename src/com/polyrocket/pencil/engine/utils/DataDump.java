@@ -11,11 +11,15 @@ import java.util.zip.GZIPOutputStream;
 /**
  * Created by PolyRocketMatt on 28/06/2020.
  */
-
 public class DataDump implements Serializable {
 
     private static transient final long serialVersionUID = 2723283690961133500L;
 
+    /**
+     * Dump boolean.
+     *
+     * @return the boolean
+     */
     public static boolean dump() {
         boolean successfulDump = generateFile(MiscellaneousUtils.now() + ".dmp");
         if (successfulDump)

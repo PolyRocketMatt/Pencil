@@ -11,11 +11,13 @@ import java.util.stream.Collectors;
 /**
  * Created by PolyRocketMatt on 27/06/2020.
  */
-
 public class ServiceManager implements Dumpable {
 
     private List<Service> services;
 
+    /**
+     * Instantiates a new Service manager.
+     */
     public ServiceManager() {
         services = new ArrayList<>();
     }
@@ -27,25 +29,48 @@ public class ServiceManager implements Dumpable {
                 .collect(Collectors.joining(", "));
     }
 
-    public void register(Service service) {
-        if (!contains(service.getID()))
+    /**
+     * Register service.
+     *
+     * @param service the service
+     */
+    public void registerService(Service service) {
+        if (service == null)
+            throw new PencilException("[Pencil] >> Service cannot be null when registering");
+        if (!containsService(service.getID()))
             services.add(service);
         else
-            throw new PencilException("[Pencil] >> Service with ID " + service.getID() + " has already been assigned!");
+            throw new PencilException("[Pencil] >> Service with ID " + service.getID() + " has already been assigned");
     }
 
-    private boolean contains(int ID) {
+    private boolean containsService(int ID) {
         return services.stream().anyMatch(service -> service.getID() == ID);
     }
 
-    public void remove(int ID) {
+    /**
+     * Remove service.
+     *
+     * @param ID the id
+     */
+    public void removeService(int ID) {
         services.removeIf(service -> service.getID() == ID);
     }
 
-    public Service get(int ID) {
+    /**
+     * Gets service with id.
+     *
+     * @param ID the id
+     * @return the service with id
+     */
+    public Service getServiceWithID(int ID) {
         return services.stream().filter(service -> service.getID() == ID).findFirst().orElse(null);
     }
 
+    /**
+     * Gets services.
+     *
+     * @return the services
+     */
     public List<Service> getServices() {
         return new ArrayList<>(services);
     }

@@ -9,21 +9,26 @@ import static com.polyrocket.pencil.engine.Pencil.getMessageService;
 /**
  * Created by PolyRocketMatt on 28/06/2020.
  */
-
 public class DumpCommand extends AbstractCommand {
 
+    /**
+     * Instantiates a new Dump command.
+     *
+     * @param name the name
+     * @param type the type
+     */
     public DumpCommand(String name, CommandType type) {
         super(name, type);
     }
 
     @Override
     public void onCommand(PencilPlayer player, String[] args) {
-        getMessageService().message(player, onCommand());
+        getMessageService().messagePencilPlayer(player, onCommand());
     }
 
     @Override
     public void onCommand(CommandSender sender, String[] args) {
-        getMessageService().message(sender, onCommand());
+        getMessageService().messageSender(sender, onCommand());
     }
 
     private String onCommand() {

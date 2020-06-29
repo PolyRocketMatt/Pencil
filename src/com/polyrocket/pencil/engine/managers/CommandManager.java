@@ -3,6 +3,7 @@ package com.polyrocket.pencil.engine.managers;
 import com.polyrocket.pencil.engine.PencilPlayer;
 import com.polyrocket.pencil.engine.command.AbstractCommand;
 import com.polyrocket.pencil.engine.command.DumpCommand;
+import com.polyrocket.pencil.engine.exception.PencilException;
 import com.polyrocket.pencil.engine.services.MessageService;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -19,11 +20,13 @@ import static com.polyrocket.pencil.engine.Pencil.getPlayerService;
 /**
  * Created by PolyRocketMatt on 27/06/2020.
  */
-
 public class CommandManager implements CommandExecutor {
 
     private HashSet<AbstractCommand> commands;
 
+    /**
+     * Instantiates a new Command manager.
+     */
     public CommandManager() {
         this.commands = new HashSet<>();
         this.commands.add(new DumpCommand("dump", AbstractCommand.CommandType.CONSOLE));
@@ -33,18 +36,18 @@ public class CommandManager implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (cmd.getName().equalsIgnoreCase("pencil")) {
             if (args.length < 1) {
-                getMessageService().message(sender, MessageService.INSUFFICIENT_COMMAND);
+                getMessageService().messageSender(sender, MessageService.INSUFFICIENT_COMMAND);
 
                 return true;
             } else {
                 if (args[0].equalsIgnoreCase("help")) {
                     if (sender instanceof Player)
                         getCommandsOfType(AbstractCommand.CommandType.PLAYER).forEach(
-                                command -> getMessageService().message(sender, MessageService.MessageType.INFO, command.getName() + " - " + command.getHelp())
+                                command -> getMessageService().messageSender(sender, MessageService.MessageType.INFO, command.getName() + " - " + command.getHelp())
                         );
                     else
                         getCommandsOfType(AbstractCommand.CommandType.CONSOLE).forEach(
-                                command -> getMessageService().message(sender, MessageService.MessageType.INFO, command.getName() + " - " + command.getHelp())
+                                command -> getMessageService().messageSender(sender, MessageService.MessageType.INFO, command.getName() + " - " + command.getHelp())
                         );
                 } else {
                     AbstractCommand command = commands.stream()
@@ -52,13 +55,13 @@ public class CommandManager implements CommandExecutor {
                             .findFirst()
                             .orElse(null);
                     if (command == null) {
-                        getMessageService().message(sender, MessageService.MessageType.WARNING, MessageService.NO_SUCH_COMMAND, args[0]);
+                        getMessageService().messageSender(sender, MessageService.MessageType.WARNING, MessageService.NO_SUCH_COMMAND, args[0]);
 
                         return true;
                     }
 
                     if (args.length - 1 < command.getArguments()) {
-                        getMessageService().message(sender,
+                        getMessageService().messageSender(sender,
                                 MessageService.MessageType.WARNING,
                                 MessageService.INSUFFICIENT_ARGUMENTS,
                                 command.getArguments(),
@@ -73,7 +76,7 @@ public class CommandManager implements CommandExecutor {
                         command.onCommand(sender, Arrays.copyOfRange(args, 1, args.length));
                     } else {
                         if (!(sender instanceof Player)) {
-                            getMessageService().message(sender, MessageService.ILLEGAL_ENTITY);
+                            getMessageService().messageSender(sender, MessageService.ILLEGAL_ENTITY);
 
                             return true;
                         }
@@ -90,6 +93,9 @@ public class CommandManager implements CommandExecutor {
     }
 
     private HashSet<AbstractCommand> getCommandsOfType(AbstractCommand.CommandType type) {
+        if (type == null)
+            throw new PencilException("[Pencil] >> Type cannot be null when accessing all commands of a type");
+
         return commands
                 .stream()
                 .filter(cmd -> cmd.getType() == type)

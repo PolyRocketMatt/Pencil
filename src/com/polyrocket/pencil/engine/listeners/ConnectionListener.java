@@ -10,7 +10,6 @@ import static com.polyrocket.pencil.engine.Pencil.getPlayerService;
 /**
  * Created by PolyRocketMatt on 28/06/2020.
  */
-
 public class ConnectionListener extends PencilListener {
 
     @Override
@@ -18,11 +17,21 @@ public class ConnectionListener extends PencilListener {
         return "ConnectionListener";
     }
 
+    /**
+     * On connect.
+     *
+     * @param event the join-event
+     */
     @EventHandler (priority = EventPriority.LOWEST)
     public void onConnect(PlayerJoinEvent event) {
         getPlayerService().addPlayer(event.getPlayer());
     }
 
+    /**
+     * On disconnect.
+     *
+     * @param event the disconnect-event
+     */
     @EventHandler (priority = EventPriority.HIGHEST)
     public void onDisconnect(PlayerQuitEvent event) {
         getPlayerService().removePlayer(event.getPlayer());
