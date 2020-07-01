@@ -1,6 +1,7 @@
 package com.github.polyrocket.pencil.engine;
 
 
+import com.github.polyrocket.pencil.engine.defaults.DefaultStrings;
 import com.github.polyrocket.pencil.engine.exception.PencilException;
 import com.github.polyrocket.pencil.engine.utils.ExceptionReport;
 
@@ -25,7 +26,7 @@ public class PermissionAttachment {
      * @return an array of strings. The strings are the permissions.
      */
     public String[] getPermissions() {
-        return (String[]) permissions.toArray();
+        return permissions.toArray(new String[permissions.size()]);
     }
 
     /**
@@ -40,13 +41,11 @@ public class PermissionAttachment {
                     this.getClass(),
                     ExceptionReport.ExceptionType.INTERNALLY_RELATED,
                     ExceptionReport.Severity.MEDIUM,
-                    "The permission you are trying to set is null");
-        if (permissions.contains(permission)) {
-            return false;
-        } else {
+                    DefaultStrings.format(DefaultStrings.CANNOT_BE_NULL, "Permission"));
+        if (!hasPermission(permission)) {
             permissions.add(permission);
             return true;
-        }
+        } else return false;
     }
 
     /**
@@ -61,14 +60,12 @@ public class PermissionAttachment {
                     this.getClass(),
                     ExceptionReport.ExceptionType.INTERNALLY_RELATED,
                     ExceptionReport.Severity.MEDIUM,
-                    "The permission you are trying to unset is null");
-        if (permissions.contains(permission)) {
+                    DefaultStrings.format(DefaultStrings.CANNOT_BE_NULL, "Permission"));
+        if (hasPermission(permission)) {
             permissions.remove(permission);
             return true;
-        } else {
+        } else return false;
 
-            return false;
-        }
     }
 
     /**
