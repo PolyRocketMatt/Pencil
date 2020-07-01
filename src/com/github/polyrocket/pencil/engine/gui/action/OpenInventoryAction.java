@@ -1,10 +1,12 @@
 package com.github.polyrocket.pencil.engine.gui.action;
 
 import com.github.polyrocket.pencil.engine.PencilPlayer;
+import com.github.polyrocket.pencil.engine.defaults.DefaultStrings;
 import com.github.polyrocket.pencil.engine.exception.PencilException;
 import com.github.polyrocket.pencil.engine.gui.inventories.AbstractInventory;
 import com.github.polyrocket.pencil.engine.gui.inventories.CustomInventory;
 import com.github.polyrocket.pencil.engine.gui.PlayerInventory;
+import com.github.polyrocket.pencil.engine.utils.ExceptionReport;
 
 /**
  * Created by PolyRocketMatt on 29/06/2020.
@@ -19,12 +21,32 @@ public class OpenInventoryAction implements Action {
     @Override
     public void trigger(Object... actionObjects) {
         if (actionObjects.length != 2)
-            throw new PencilException("[Pencil] >> Trigger for OpenInventoryAction failed: " + (actionObjects.length > 2 ?
-                    "Too many arguments" : "Not enough arguments"));
+            throw new PencilException(
+                    getClass(),
+                    ExceptionReport.ExceptionType.INTERNALLY_RELATED,
+                    ExceptionReport.Severity.CRITICAL,
+                    DefaultStrings.format(DefaultStrings.ACTION_TRIGGER_FAILURE, getClass().getName(),
+                            (actionObjects.length > 2 ? "Too many arguments" : "Not enough arguments")),
+                    actionObjects
+            );
         if (!(actionObjects[0] instanceof PencilPlayer))
-            throw new PencilException("[Pencil] >> Trigger for OpenInventoryAction failed: Expected PencilPlayer argument [0]");
+            throw new PencilException(
+                    getClass(),
+                    ExceptionReport.ExceptionType.INTERNALLY_RELATED,
+                    ExceptionReport.Severity.CRITICAL,
+                    DefaultStrings.format(DefaultStrings.ACTION_TRIGGER_FAILURE, getClass().getName(),
+                            "Expected PencilPlayer argument [0], found " + actionObjects[0].getClass().toString()),
+                    actionObjects[0]
+            );
         if (!(actionObjects[1] instanceof AbstractInventory))
-            throw new PencilException("[Pencil] >> Trigger for OpenInventoryAction failed: Expected AbstractInventory argument [1]");
+            throw new PencilException(
+                    getClass(),
+                    ExceptionReport.ExceptionType.INTERNALLY_RELATED,
+                    ExceptionReport.Severity.CRITICAL,
+                    DefaultStrings.format(DefaultStrings.ACTION_TRIGGER_FAILURE, getClass().getName(),
+                            "Expected AbstractInventory argument [1], found " + actionObjects[0].getClass().toString()),
+                    actionObjects[0]
+            );
 
         PencilPlayer player = (PencilPlayer) actionObjects[0];
         player.setInventory(new PlayerInventory(player.getInventory(), player, (CustomInventory) actionObjects[1]));

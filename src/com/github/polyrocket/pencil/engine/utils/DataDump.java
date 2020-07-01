@@ -21,7 +21,7 @@ public class DataDump implements Serializable {
      * @return the boolean
      */
     public static boolean dump() {
-        boolean successfulDump = generateFile(MiscellaneousUtils.now() + ".dmp");
+        boolean successfulDump = generateDump(MiscellaneousUtils.now() + ".dmp", Pencil.getServiceManager().dump());
         if (successfulDump)
             System.out.println("[Pencil] >> Data dump has been completed!");
         else
@@ -29,13 +29,14 @@ public class DataDump implements Serializable {
         return successfulDump;
     }
 
-    private static boolean generateFile(String file) {
-        String serviceDump = Pencil.getServiceManager().dump();
-
+    public static boolean generateDump(String file, Object... objects) {
         try {
             System.out.println("[Pencil] >> Initiating data dump...");
             BukkitObjectOutputStream out = new BukkitObjectOutputStream(new GZIPOutputStream(new FileOutputStream(file)));
-            out.writeObject(serviceDump);
+
+            for (Object object : objects)
+                out.writeObject(object.toString());
+
             out.close();
             System.out.println("[Pencil] >> Data dump finished!");
 

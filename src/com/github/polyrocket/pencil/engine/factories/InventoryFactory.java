@@ -3,7 +3,6 @@ package com.github.polyrocket.pencil.engine.factories;
 import com.github.polyrocket.pencil.engine.defaults.DefaultItems;
 import com.github.polyrocket.pencil.engine.gui.inventories.EditableInventory;
 import org.bukkit.Bukkit;
-import org.bukkit.entity.HumanEntity;
 import org.bukkit.inventory.ItemStack;
 
 import static com.github.polyrocket.pencil.engine.Pencil.PREFIX;
@@ -14,6 +13,8 @@ import static com.github.polyrocket.pencil.engine.Pencil.PREFIX;
  */
 
 public class InventoryFactory {
+
+    private InventoryFactory() {}
 
     public final static EditableInventory ROWS_3 = createInventory(PREFIX, 27);
     public final static EditableInventory ROWS_4 = createInventory(PREFIX, 36);

@@ -89,6 +89,12 @@ public class CustomInventory implements AbstractInventory {
         return id;
     }
 
+    /**
+     * Trigger action when slot has been accessed.
+     *
+     * @param slot    the slot
+     * @param objects the objects
+     */
     public void trigger(int slot, Object...objects) {
         actionMap.getOrDefault(slot, IGNORE_ACTION).trigger(objects);
     }

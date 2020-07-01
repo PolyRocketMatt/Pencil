@@ -1,6 +1,8 @@
 package com.github.polyrocket.pencil.engine.gui.inventories;
 
+import com.github.polyrocket.pencil.engine.defaults.DefaultStrings;
 import com.github.polyrocket.pencil.engine.exception.PencilException;
+import com.github.polyrocket.pencil.engine.utils.ExceptionReport;
 import org.bukkit.inventory.Inventory;
 
 import java.util.HashMap;
@@ -53,13 +55,23 @@ public class PagedInventory implements AbstractInventory, Iterable<CustomInvento
 
     private CustomInventory getInventoryAtPage(int page) {
         if (inventories.size() < page)
-            throw new PencilException("[Pencil] >> Page for inventory search is out of bounds");
+            throw new PencilException(
+                    getClass(),
+                    ExceptionReport.ExceptionType.INTERNALLY_RELATED,
+                    ExceptionReport.Severity.CRITICAL,
+                    DefaultStrings.format("Page {0} is out of bounds, maximum page is {1}", page, inventories.size())
+            );
         return inventories.getOrDefault(page, null);
     }
 
     private int getPageForInventory(CustomInventory inventory) {
         if (inventory == null)
-            throw new PencilException("[Pencil] >> Inventory for page search cannot be null");
+            throw new PencilException(
+                    getClass(),
+                    ExceptionReport.ExceptionType.INTERNALLY_RELATED,
+                    ExceptionReport.Severity.CRITICAL,
+                    DefaultStrings.format(DefaultStrings.CANNOT_BE_NULL, "Inventory")
+            );
         for (int key : inventories.keySet())
             if (inventories.get(key).getID() == inventory.getID())
                 return key;

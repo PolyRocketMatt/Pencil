@@ -1,8 +1,10 @@
 package com.github.polyrocket.pencil.engine.gui;
 
 import com.github.polyrocket.pencil.engine.PencilPlayer;
+import com.github.polyrocket.pencil.engine.defaults.DefaultStrings;
 import com.github.polyrocket.pencil.engine.exception.PencilException;
 import com.github.polyrocket.pencil.engine.gui.inventories.AbstractInventory;
+import com.github.polyrocket.pencil.engine.utils.ExceptionReport;
 
 /**
  * Created by PolyRocketMatt on 28/06/2020.
@@ -21,9 +23,19 @@ public class PlayerInventory {
      */
     public PlayerInventory(PencilPlayer owner, AbstractInventory inventory) {
         if (owner == null)
-            throw new PencilException("[Pencil] >> PencilInventory owner cannot be null on instantiation of a new inventory");
+            throw new PencilException(
+                    getClass(),
+                    ExceptionReport.ExceptionType.INTERNALLY_RELATED,
+                    ExceptionReport.Severity.CRITICAL,
+                    DefaultStrings.format(DefaultStrings.CANNOT_BE_NULL, "Owner")
+            );
         if (inventory == null)
-            throw new PencilException("[Pencil] >> PencilInventory inventory cannot be null on instantiation of a new inventory");
+            throw new PencilException(
+                    getClass(),
+                    ExceptionReport.ExceptionType.INTERNALLY_RELATED,
+                    ExceptionReport.Severity.CRITICAL,
+                    DefaultStrings.format(DefaultStrings.CANNOT_BE_NULL, "Inventory")
+            );
         this.previous = null;
         this.owner = owner;
         this.inventory = null;
@@ -38,9 +50,19 @@ public class PlayerInventory {
      */
     public PlayerInventory(PlayerInventory previous, PencilPlayer owner, AbstractInventory inventory) {
         if (owner == null)
-            throw new PencilException("[Pencil] >> PencilInventory owner cannot be null on instantiation of a inventory");
+            throw new PencilException(
+                    getClass(),
+                    ExceptionReport.ExceptionType.INTERNALLY_RELATED,
+                    ExceptionReport.Severity.CRITICAL,
+                    DefaultStrings.format(DefaultStrings.CANNOT_BE_NULL, "Owner")
+            );
         if (inventory == null)
-            throw new PencilException("[Pencil] >> PencilInventory inventory cannot be null on instantiation of a new inventory");
+            throw new PencilException(
+                    getClass(),
+                    ExceptionReport.ExceptionType.INTERNALLY_RELATED,
+                    ExceptionReport.Severity.CRITICAL,
+                    DefaultStrings.format(DefaultStrings.CANNOT_BE_NULL, "Owner")
+            );
         this.previous = previous;
         this.owner = owner;
         this.inventory = inventory;

@@ -1,13 +1,12 @@
 package com.github.polyrocket.pencil.engine;
 
+import com.github.polyrocket.pencil.engine.defaults.DefaultStrings;
 import com.github.polyrocket.pencil.engine.exception.PencilException;
 import com.github.polyrocket.pencil.engine.managers.CommandManager;
 import com.github.polyrocket.pencil.engine.managers.ServiceManager;
 import com.github.polyrocket.pencil.engine.metrics.Metrics;
-import com.github.polyrocket.pencil.engine.services.EventService;
-import com.github.polyrocket.pencil.engine.services.MessageService;
-import com.github.polyrocket.pencil.engine.services.PlayerService;
-import com.github.polyrocket.pencil.engine.services.Service;
+import com.github.polyrocket.pencil.engine.services.*;
+import com.github.polyrocket.pencil.engine.utils.ExceptionReport;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -34,6 +33,7 @@ public class Pencil extends JavaPlugin {
         serviceManager.registerService(new MessageService());
         serviceManager.registerService(new PlayerService());
         serviceManager.registerService(new EventService());
+        serviceManager.registerService(new ExceptionService());
         serviceManager.getServices().forEach(Service::start);
 
         System.out.println("[Pencil] >> Managing commands...");
@@ -76,15 +76,34 @@ public class Pencil extends JavaPlugin {
     }
 
     /**
+     * Gets metrics.
+     *
+     * @return the metrics
+     */
+    public static Metrics getMetrics() {
+        return metrics;
+    }
+
+    /**
      * Gets message service.
      *
      * @return the message service
      */
     public static MessageService getMessageService() {
         if (!(serviceManager.getServiceWithID(0) instanceof MessageService))
-            throw new PencilException("[Pencil] >> Unexpected service using ID: 0! It's advised to make a complete dump and contact a developer!");
+            throw new PencilException(
+                    Pencil.class,
+                    ExceptionReport.ExceptionType.INTERNALLY_RELATED,
+                    ExceptionReport.Severity.CRITICAL,
+                    DefaultStrings.format(DefaultStrings.UNEXPECTED_SERVICE_WITH_ID, 0)
+            );
         if (serviceManager.getServiceWithID(0) == null)
-            throw new PencilException("[Pencil] >> Unexpected error: service doesn't exist! It's advised to make a complete dump and contact a developer!");
+            throw new PencilException(
+                    Pencil.class,
+                    ExceptionReport.ExceptionType.INTERNALLY_RELATED,
+                    ExceptionReport.Severity.CRITICAL,
+                    DefaultStrings.format(DefaultStrings.UNEXPECTED_SERVICE_WITH_ID, 0)
+            );
         return (MessageService) serviceManager.getServiceWithID(0);
     }
 
@@ -95,9 +114,19 @@ public class Pencil extends JavaPlugin {
      */
     public static PlayerService getPlayerService() {
         if (!(serviceManager.getServiceWithID(1) instanceof PlayerService))
-            throw new PencilException("[Pencil] >> Unexpected service using ID: 1! It's advised to make a complete dump and contact a developer!");
+            throw new PencilException(
+                    Pencil.class,
+                    ExceptionReport.ExceptionType.INTERNALLY_RELATED,
+                    ExceptionReport.Severity.CRITICAL,
+                    DefaultStrings.format(DefaultStrings.UNEXPECTED_SERVICE_WITH_ID, 1)
+            );
         if (serviceManager.getServiceWithID(1) == null)
-            throw new PencilException("[Pencil] >> Unexpected error: service doesn't exist! It's advised to make a complete dump and contact a developer!");
+            throw new PencilException(
+                    Pencil.class,
+                    ExceptionReport.ExceptionType.INTERNALLY_RELATED,
+                    ExceptionReport.Severity.CRITICAL,
+                    DefaultStrings.format(DefaultStrings.UNEXPECTED_SERVICE_WITH_ID, 1)
+            );
         return (PlayerService) serviceManager.getServiceWithID(1);
     }
 
@@ -108,15 +137,43 @@ public class Pencil extends JavaPlugin {
      */
     public static EventService getEventService() {
         if (!(serviceManager.getServiceWithID(2) instanceof EventService))
-            throw new PencilException("[Pencil] >> Unexpected service using ID: 2! It's advised to make a complete dump and contact a developer!");
+            throw new PencilException(
+                    Pencil.class,
+                    ExceptionReport.ExceptionType.INTERNALLY_RELATED,
+                    ExceptionReport.Severity.CRITICAL,
+                    DefaultStrings.format(DefaultStrings.UNEXPECTED_SERVICE_WITH_ID, 2)
+            );
         if (serviceManager.getServiceWithID(2) == null)
-            throw new PencilException("[Pencil] >> Unexpected error: service doesn't exist! It's advised to make a complete dump and contact a developer!");
+            throw new PencilException(
+                    Pencil.class,
+                    ExceptionReport.ExceptionType.INTERNALLY_RELATED,
+                    ExceptionReport.Severity.CRITICAL,
+                    DefaultStrings.format(DefaultStrings.UNEXPECTED_SERVICE_WITH_ID, 2)
+            );
         return (EventService) serviceManager.getServiceWithID(2);
+    }
+
+    public static ExceptionService getExceptionService() {
+        if (!(serviceManager.getServiceWithID(3) instanceof ExceptionService))
+            throw new PencilException(
+                    Pencil.class,
+                    ExceptionReport.ExceptionType.INTERNALLY_RELATED,
+                    ExceptionReport.Severity.CRITICAL,
+                    DefaultStrings.format(DefaultStrings.UNEXPECTED_SERVICE_WITH_ID, 3)
+            );
+        if (serviceManager.getServiceWithID(2) == null)
+            throw new PencilException(
+                    Pencil.class,
+                    ExceptionReport.ExceptionType.INTERNALLY_RELATED,
+                    ExceptionReport.Severity.CRITICAL,
+                    DefaultStrings.format(DefaultStrings.UNEXPECTED_SERVICE_WITH_ID, 3)
+            );
+        return (ExceptionService) serviceManager.getServiceWithID(2);
     }
 
     /**
      * The constant PREFIX used for all in-game Pencil messages.
      */
-    public static String PREFIX = ChatColor.DARK_GRAY + "[" + ChatColor.GOLD + "Pencil" + ChatColor.DARK_GRAY + "] >> ";
+    public static final String PREFIX = ChatColor.DARK_GRAY + "[" + ChatColor.GOLD + "Pencil" + ChatColor.DARK_GRAY + "] >> ";
 
 }

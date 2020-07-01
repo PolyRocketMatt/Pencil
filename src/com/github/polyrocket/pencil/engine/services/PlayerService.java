@@ -1,7 +1,9 @@
 package com.github.polyrocket.pencil.engine.services;
 
 import com.github.polyrocket.pencil.engine.PencilPlayer;
+import com.github.polyrocket.pencil.engine.defaults.DefaultStrings;
 import com.github.polyrocket.pencil.engine.exception.PencilException;
+import com.github.polyrocket.pencil.engine.utils.ExceptionReport;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
@@ -39,9 +41,10 @@ public class PlayerService extends Service {
 
     @Override
     public String dump() {
-        return players.stream()
+        return "PlayerService[DUMP={" + players.stream()
                 .map(PencilPlayer::toString)
-                .collect(Collectors.joining(", "));
+                .collect(Collectors.joining(", "))
+                + "}]";
     }
 
     /**
@@ -60,12 +63,22 @@ public class PlayerService extends Service {
      */
     public void addPlayer(Player player) {
         if (player == null)
-            throw new PencilException("[Pencil] >> Player cannot be null when adding to plugin");
+            throw new PencilException(
+                    getClass(),
+                    ExceptionReport.ExceptionType.INTERNALLY_RELATED,
+                    ExceptionReport.Severity.CRITICAL,
+                    DefaultStrings.format(DefaultStrings.CANNOT_BE_NULL, "Player")
+            );
 
         PencilPlayer pencilPlayer = new PencilPlayer(player);
 
         if (players.stream().anyMatch(member -> member.getUUID() == pencilPlayer.getUUID()))
-            throw new PencilException("[Pencil] >> Duplicate player registration occurred");
+            throw new PencilException(
+                    getClass(),
+                    ExceptionReport.ExceptionType.INTERNALLY_RELATED,
+                    ExceptionReport.Severity.CRITICAL,
+                    DefaultStrings.CONSOLE_PREFIX + "Player '" + player.getName() + "' already registered"
+            );
         players.add(pencilPlayer);
     }
 
@@ -86,7 +99,12 @@ public class PlayerService extends Service {
      */
     public void removePlayer(PencilPlayer player) {
         if (player == null)
-            throw new PencilException("[Pencil] >> Player cannot be null when removing from plugin");
+            throw new PencilException(
+                    getClass(),
+                    ExceptionReport.ExceptionType.INTERNALLY_RELATED,
+                    ExceptionReport.Severity.CRITICAL,
+                    DefaultStrings.format(DefaultStrings.CANNOT_BE_NULL, "Player")
+            );
 
         players.removeIf(member -> member.getUUID() == player.getUUID());
     }
@@ -98,7 +116,12 @@ public class PlayerService extends Service {
      */
     public void removePlayer(Player player) {
         if (player == null)
-            throw new PencilException("[Pencil] >> Player cannot be null when removing from plugin");
+            throw new PencilException(
+                    getClass(),
+                    ExceptionReport.ExceptionType.INTERNALLY_RELATED,
+                    ExceptionReport.Severity.CRITICAL,
+                    DefaultStrings.format(DefaultStrings.CANNOT_BE_NULL, "Player")
+            );
 
         players.removeIf(member -> member.getUUID() == player.getUniqueId());
     }
@@ -121,7 +144,12 @@ public class PlayerService extends Service {
      */
     public PencilPlayer getPlayer(Player player) {
         if (player == null)
-            throw new PencilException("[Pencil] >> Player cannot be null when looking for one");
+            throw new PencilException(
+                    getClass(),
+                    ExceptionReport.ExceptionType.INTERNALLY_RELATED,
+                    ExceptionReport.Severity.CRITICAL,
+                    DefaultStrings.format(DefaultStrings.CANNOT_BE_NULL, "Player")
+            );
         return players.stream().filter(member -> member.getUUID() == player.getUniqueId()).findFirst().orElse(null);
     }
 

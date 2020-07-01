@@ -1,6 +1,8 @@
 package com.github.polyrocket.pencil.engine.factories;
 
+import com.github.polyrocket.pencil.engine.defaults.DefaultStrings;
 import com.github.polyrocket.pencil.engine.exception.PencilException;
+import com.github.polyrocket.pencil.engine.utils.ExceptionReport;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
@@ -29,7 +31,13 @@ public class ItemFactory {
         ItemMeta meta = item.getItemMeta();
 
         if (meta == null)
-            throw new PencilException("[Pencil] >> Meta of item was null!");
+            throw new PencilException(
+                    ItemFactory.class,
+                    ExceptionReport.ExceptionType.BUG_RELATED,
+                    ExceptionReport.Severity.HIGH,
+                    DefaultStrings.format(DefaultStrings.CANNOT_BE_NULL, "ItemMeta"),
+                    item, name, useInternalMeta, lore
+            );
 
         meta.setDisplayName(name);
         meta.setLore(Arrays.asList(lore));

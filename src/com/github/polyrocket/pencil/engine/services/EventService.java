@@ -1,9 +1,11 @@
 package com.github.polyrocket.pencil.engine.services;
 
+import com.github.polyrocket.pencil.engine.defaults.DefaultStrings;
 import com.github.polyrocket.pencil.engine.exception.PencilException;
 import com.github.polyrocket.pencil.engine.listeners.ConnectionListener;
 import com.github.polyrocket.pencil.engine.Pencil;
 import com.github.polyrocket.pencil.engine.listeners.PencilListener;
+import com.github.polyrocket.pencil.engine.utils.ExceptionReport;
 import org.bukkit.Bukkit;
 
 import java.util.ArrayList;
@@ -55,9 +57,19 @@ public class EventService extends Service {
      */
     public void registerListener(PencilListener listener) {
         if (listener == null)
-            throw new PencilException("[Pencil] >> Listener cannot be null when registering");
+            throw new PencilException(
+                    getClass(),
+                    ExceptionReport.ExceptionType.INTERNALLY_RELATED,
+                    ExceptionReport.Severity.CRITICAL,
+                    DefaultStrings.format(DefaultStrings.CANNOT_BE_NULL, "Listener")
+            );
         if (activeListeners.stream().anyMatch(ls -> ls.getName().equalsIgnoreCase(listener.getName())))
-            throw new PencilException("[Pencil] >> Listener with name " + listener.getName() + " has already been registered");
+            throw new PencilException(
+                    getClass(),
+                    ExceptionReport.ExceptionType.INTERNALLY_RELATED,
+                    ExceptionReport.Severity.CRITICAL,
+                    DefaultStrings.CONSOLE_PREFIX + "Listener with name " + listener.getName() + " has already been assigned"
+            );
         activeListeners.add(listener);
 
         Bukkit.getServer().getPluginManager().registerEvents(listener, Pencil.getPlugin());
@@ -65,10 +77,10 @@ public class EventService extends Service {
 
     @Override
     public String toString() {
-        return "EventService{LISTENERS:" +
+        return "EventService[DUMP={LISTENERS:" +
                 activeListeners.stream()
                 .map(Objects::toString)
                 .collect(Collectors.joining(", "))
-                + "}";
+                + "}]";
     }
 }

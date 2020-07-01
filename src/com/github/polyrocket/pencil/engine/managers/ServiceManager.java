@@ -1,8 +1,10 @@
 package com.github.polyrocket.pencil.engine.managers;
 
+import com.github.polyrocket.pencil.engine.defaults.DefaultStrings;
 import com.github.polyrocket.pencil.engine.exception.PencilException;
 import com.github.polyrocket.pencil.engine.Dumpable;
 import com.github.polyrocket.pencil.engine.services.Service;
+import com.github.polyrocket.pencil.engine.utils.ExceptionReport;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,11 +38,21 @@ public class ServiceManager implements Dumpable {
      */
     public void registerService(Service service) {
         if (service == null)
-            throw new PencilException("[Pencil] >> Service cannot be null when registering");
+            throw new PencilException(
+                    getClass(),
+                    ExceptionReport.ExceptionType.INTERNALLY_RELATED,
+                    ExceptionReport.Severity.CRITICAL,
+                    DefaultStrings.format(DefaultStrings.CANNOT_BE_NULL, "Service")
+            );
         if (!containsService(service.getID()))
             services.add(service);
         else
-            throw new PencilException("[Pencil] >> Service with ID " + service.getID() + " has already been assigned");
+            throw new PencilException(
+                    getClass(),
+                    ExceptionReport.ExceptionType.INTERNALLY_RELATED,
+                    ExceptionReport.Severity.CRITICAL,
+                    DefaultStrings.CONSOLE_PREFIX + "Service with ID " + service.getID() + " has already been assigned"
+            );
     }
 
     private boolean containsService(int ID) {

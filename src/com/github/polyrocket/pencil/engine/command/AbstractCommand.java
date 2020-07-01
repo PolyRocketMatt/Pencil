@@ -1,7 +1,9 @@
 package com.github.polyrocket.pencil.engine.command;
 
 import com.github.polyrocket.pencil.engine.PencilPlayer;
+import com.github.polyrocket.pencil.engine.defaults.DefaultStrings;
 import com.github.polyrocket.pencil.engine.exception.PencilException;
+import com.github.polyrocket.pencil.engine.utils.ExceptionReport;
 import org.bukkit.command.CommandSender;
 
 /**
@@ -34,9 +36,20 @@ public abstract class AbstractCommand {
      */
     public AbstractCommand(String name, CommandType type) {
         if (name == null)
-            throw new PencilException("[Pencil] >> Name of a command cannot be null at instantiation of a command");
+            throw new PencilException(
+                    getClass(),
+                    ExceptionReport.ExceptionType.BUG_RELATED,
+                    ExceptionReport.Severity.HIGH,
+                    DefaultStrings.format(DefaultStrings.CANNOT_BE_NULL, "Name of command")
+            );
         if (type == null)
-            throw new PencilException("[Pencil] >> Type of a command cannot be null at instantiation of a command");
+            throw new PencilException(
+                    getClass(),
+                    ExceptionReport.ExceptionType.BUG_RELATED,
+                    ExceptionReport.Severity.HIGH,
+                    DefaultStrings.format(DefaultStrings.CANNOT_BE_NULL, "Type of command"),
+                    name
+            );
         this.name = name;
         this.type = type;
     }

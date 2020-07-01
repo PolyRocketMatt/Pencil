@@ -1,10 +1,12 @@
 package com.github.polyrocket.pencil.engine.managers;
 
 import com.github.polyrocket.pencil.engine.PencilPlayer;
+import com.github.polyrocket.pencil.engine.defaults.DefaultStrings;
 import com.github.polyrocket.pencil.engine.exception.PencilException;
 import com.github.polyrocket.pencil.engine.services.MessageService;
 import com.github.polyrocket.pencil.engine.command.AbstractCommand;
 import com.github.polyrocket.pencil.engine.command.DumpCommand;
+import com.github.polyrocket.pencil.engine.utils.ExceptionReport;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -94,7 +96,12 @@ public class CommandManager implements CommandExecutor {
 
     private HashSet<AbstractCommand> getCommandsOfType(AbstractCommand.CommandType type) {
         if (type == null)
-            throw new PencilException("[Pencil] >> Type cannot be null when accessing all commands of a type");
+            throw new PencilException(
+                    getClass(),
+                    ExceptionReport.ExceptionType.INTERNALLY_RELATED,
+                    ExceptionReport.Severity.CRITICAL,
+                    DefaultStrings.format(DefaultStrings.CANNOT_BE_NULL, "Type")
+            );
 
         return commands
                 .stream()
