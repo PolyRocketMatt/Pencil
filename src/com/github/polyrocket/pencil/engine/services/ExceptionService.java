@@ -63,10 +63,7 @@ public class ExceptionService extends Service {
                     + "An exception occurred. Exception was thrown in " + thrower.getName() + " at row " + report.getException().getRow() + "\n"
                     + report.toString();
 
-            builder.append(stringReport).append("""
-
-
-                    """);
+            builder.append(stringReport).append("\n\n");
         }
 
         return builder.toString();
