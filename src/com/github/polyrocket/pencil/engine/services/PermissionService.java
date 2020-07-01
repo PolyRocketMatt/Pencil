@@ -2,17 +2,14 @@ package com.github.polyrocket.pencil.engine.services;
 
 import com.github.polyrocket.pencil.engine.Pencil;
 import com.github.polyrocket.pencil.engine.PencilPlayer;
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
-import org.bukkit.permissions.PermissionAttachment;
+import com.github.polyrocket.pencil.engine.PermissionAttachment;
 
-import java.util.Collection;
 import java.util.HashMap;
 
 /**
  * The type Permission service.
  */
-public class PermissionService extends Service{
+public class PermissionService extends Service {
     private HashMap<PencilPlayer, PermissionAttachment> permissions;
 
 
@@ -35,7 +32,7 @@ public class PermissionService extends Service{
      *
      * @param players the players
      */
-    public void linkPlayersPermissions(PencilPlayer...players) {
+    public void linkPlayersPermissions(PencilPlayer... players) {
         for (PencilPlayer player : players)
             linkPlayerPermissions(player);
 
