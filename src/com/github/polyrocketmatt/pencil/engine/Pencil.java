@@ -63,7 +63,7 @@ public class Pencil extends JavaPlugin {
      * @return the plugin
      */
     public static Plugin getPlugin() {
-        return Bukkit.getServer().getPluginManager().getPlugin("Pencil");
+        return Bukkit.getServer().getPluginManager().getPlugin("PencilPlugin");
     }
 
     /**
