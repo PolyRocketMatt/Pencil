@@ -1,5 +1,6 @@
 package com.github.polyrocket.pencil.engine.services;
 
+import com.github.polyrocket.pencil.engine.Pencil;
 import com.github.polyrocket.pencil.engine.PencilPlayer;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -25,8 +26,7 @@ public class PermissionService extends Service{
 
     @Override
     public int start() {
-        PlayerService playerService = new PlayerService();
-        linkPlayersPermissions(playerService.getPlayers().toArray(PencilPlayer[]::new));
+        linkPlayersPermissions(Pencil.getPlayerService().getPlayers().toArray(new PencilPlayer[Pencil.getPlayerService().getPlayers().size()]));
         return 0;
     }
 
@@ -36,9 +36,9 @@ public class PermissionService extends Service{
      * @param players the players
      */
     public void linkPlayersPermissions(PencilPlayer...players) {
-        for (PencilPlayer player : players) {
+        for (PencilPlayer player : players)
             linkPlayerPermissions(player);
-        }
+
     }
 
     /**
