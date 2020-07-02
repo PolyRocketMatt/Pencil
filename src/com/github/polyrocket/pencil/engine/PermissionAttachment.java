@@ -4,8 +4,11 @@ package com.github.polyrocket.pencil.engine;
 import com.github.polyrocket.pencil.engine.defaults.DefaultStrings;
 import com.github.polyrocket.pencil.engine.exception.PencilException;
 import com.github.polyrocket.pencil.engine.utils.ExceptionReport;
+import joptsimple.internal.Strings;
 
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.stream.Stream;
 
 /**
  * The type Permission attachment.
@@ -42,7 +45,7 @@ public class PermissionAttachment {
                     ExceptionReport.ExceptionType.INTERNALLY_RELATED,
                     ExceptionReport.Severity.MEDIUM,
                     DefaultStrings.format(DefaultStrings.CANNOT_BE_NULL, "Permission"));
-        if (!hasPermission(permission)) {
+        if (!hasExactPermission(permission)) {
             permissions.add(permission);
             return true;
         } else {
@@ -63,7 +66,7 @@ public class PermissionAttachment {
                     ExceptionReport.ExceptionType.INTERNALLY_RELATED,
                     ExceptionReport.Severity.MEDIUM,
                     DefaultStrings.format(DefaultStrings.CANNOT_BE_NULL, "Permission"));
-        if (hasPermission(permission)) {
+        if (hasExactPermission(permission)) {
             permissions.remove(permission);
             return true;
         } else {
@@ -73,12 +76,31 @@ public class PermissionAttachment {
     }
 
     /**
+     * Has exact permission boolean.
+     *
+     * @param permission the permission
+     * @return {@code true} if the exact permission is set. {@code false} otherwise.
+     */
+    public boolean hasExactPermission(String permission) {
+        return permissions.contains(permission);
+    }
+
+    /**
      * Has permission boolean.
      *
      * @param permission the permission
-     * @return {@code true} if the permission is set. {@code false} otherwise
+     * @return {@code true} if the exact permission or one of the parent permissions is set. {@code false} otherwise.
      */
     public boolean hasPermission(String permission) {
-        return permissions.contains(permission);
+        return Arrays.stream(generatePermissionParents(permission)).anyMatch(i -> permissions.contains(i));
     }
+
+    private String[] generatePermissionParents(String permission) {
+        String[] splits = permission.split("\\.");
+        for (int i = 1; i < splits.length; i++) {
+            splits[i] = String.join(".", splits[i - 1], splits[i]);
+        }
+        return splits;
+    }
+
 }

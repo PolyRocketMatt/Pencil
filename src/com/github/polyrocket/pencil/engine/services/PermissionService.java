@@ -50,6 +50,10 @@ public class PermissionService extends Service {
 
     }
 
+    public PermissionAttachment getPermissionAttachment(PencilPlayer player) {
+        return permissions.get(player);
+    }
+
     @Override
     public int stop() {
         return 0;
