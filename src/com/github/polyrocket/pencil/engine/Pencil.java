@@ -25,12 +25,14 @@ public class Pencil extends JavaPlugin {
     private static ServiceManager serviceManager;
     private static Metrics metrics;
 
+    //TODO: Make sure Permission Service is started before Player Service to not get any NPE's
     @Override
     public void onEnable() {
         System.out.println("[Pencil] >> Loading Pencil...");
         System.out.println("[Pencil] >> Loading services...");
         serviceManager = new ServiceManager();
         serviceManager.registerService(new MessageService());
+        serviceManager.registerService(new PermissionService());
         serviceManager.registerService(new PlayerService());
         serviceManager.registerService(new EventService());
         serviceManager.registerService(new ExceptionService());
@@ -95,14 +97,14 @@ public class Pencil extends JavaPlugin {
                     Pencil.class,
                     ExceptionReport.ExceptionType.INTERNALLY_RELATED,
                     ExceptionReport.Severity.CRITICAL,
-                    DefaultStrings.format(DefaultStrings.UNEXPECTED_SERVICE_WITH_ID, 0)
+                    DefaultStrings.format(DefaultStrings.UNEXPECTED_SERVICE_WITH_ID, 0, serviceManager.getServiceWithID(0).getClass().getSimpleName())
             );
         if (serviceManager.getServiceWithID(0) == null)
             throw new PencilException(
                     Pencil.class,
                     ExceptionReport.ExceptionType.INTERNALLY_RELATED,
                     ExceptionReport.Severity.CRITICAL,
-                    DefaultStrings.format(DefaultStrings.UNEXPECTED_SERVICE_WITH_ID, 0)
+                    DefaultStrings.format(DefaultStrings.CANNOT_BE_NULL, "Service with ID 0")
             );
         return (MessageService) serviceManager.getServiceWithID(0);
     }
@@ -118,14 +120,14 @@ public class Pencil extends JavaPlugin {
                     Pencil.class,
                     ExceptionReport.ExceptionType.INTERNALLY_RELATED,
                     ExceptionReport.Severity.CRITICAL,
-                    DefaultStrings.format(DefaultStrings.UNEXPECTED_SERVICE_WITH_ID, 1)
+                    DefaultStrings.format(DefaultStrings.UNEXPECTED_SERVICE_WITH_ID, 1, serviceManager.getServiceWithID(0).getClass().getSimpleName())
             );
         if (serviceManager.getServiceWithID(1) == null)
             throw new PencilException(
                     Pencil.class,
                     ExceptionReport.ExceptionType.INTERNALLY_RELATED,
                     ExceptionReport.Severity.CRITICAL,
-                    DefaultStrings.format(DefaultStrings.UNEXPECTED_SERVICE_WITH_ID, 1)
+                    DefaultStrings.format(DefaultStrings.CANNOT_BE_NULL, "Service with ID 1")
             );
         return (PlayerService) serviceManager.getServiceWithID(1);
     }
@@ -141,14 +143,14 @@ public class Pencil extends JavaPlugin {
                     Pencil.class,
                     ExceptionReport.ExceptionType.INTERNALLY_RELATED,
                     ExceptionReport.Severity.CRITICAL,
-                    DefaultStrings.format(DefaultStrings.UNEXPECTED_SERVICE_WITH_ID, 2)
+                    DefaultStrings.format(DefaultStrings.UNEXPECTED_SERVICE_WITH_ID, 2, serviceManager.getServiceWithID(0).getClass().getSimpleName())
             );
         if (serviceManager.getServiceWithID(2) == null)
             throw new PencilException(
                     Pencil.class,
                     ExceptionReport.ExceptionType.INTERNALLY_RELATED,
                     ExceptionReport.Severity.CRITICAL,
-                    DefaultStrings.format(DefaultStrings.UNEXPECTED_SERVICE_WITH_ID, 2)
+                    DefaultStrings.format(DefaultStrings.CANNOT_BE_NULL, "Service with ID 2")
             );
         return (EventService) serviceManager.getServiceWithID(2);
     }
@@ -159,16 +161,52 @@ public class Pencil extends JavaPlugin {
                     Pencil.class,
                     ExceptionReport.ExceptionType.INTERNALLY_RELATED,
                     ExceptionReport.Severity.CRITICAL,
-                    DefaultStrings.format(DefaultStrings.UNEXPECTED_SERVICE_WITH_ID, 3)
+                    DefaultStrings.format(DefaultStrings.UNEXPECTED_SERVICE_WITH_ID, 3, serviceManager.getServiceWithID(0).getClass().getSimpleName())
             );
-        if (serviceManager.getServiceWithID(2) == null)
+        if (serviceManager.getServiceWithID(3) == null)
             throw new PencilException(
                     Pencil.class,
                     ExceptionReport.ExceptionType.INTERNALLY_RELATED,
                     ExceptionReport.Severity.CRITICAL,
-                    DefaultStrings.format(DefaultStrings.UNEXPECTED_SERVICE_WITH_ID, 3)
+                    DefaultStrings.format(DefaultStrings.CANNOT_BE_NULL, "Service with ID 3")
             );
-        return (ExceptionService) serviceManager.getServiceWithID(2);
+        return (ExceptionService) serviceManager.getServiceWithID(3);
+    }
+
+    public static LanguageService getLanguageService() {
+        if (!(serviceManager.getServiceWithID(4) instanceof LanguageService))
+            throw new PencilException(
+                    Pencil.class,
+                    ExceptionReport.ExceptionType.INTERNALLY_RELATED,
+                    ExceptionReport.Severity.CRITICAL,
+                    DefaultStrings.format(DefaultStrings.UNEXPECTED_SERVICE_WITH_ID, 4, serviceManager.getServiceWithID(0).getClass().getSimpleName())
+            );
+        if (serviceManager.getServiceWithID(4) == null)
+            throw new PencilException(
+                    Pencil.class,
+                    ExceptionReport.ExceptionType.INTERNALLY_RELATED,
+                    ExceptionReport.Severity.CRITICAL,
+                    DefaultStrings.format(DefaultStrings.CANNOT_BE_NULL, "Service with ID 4")
+            );
+        return (LanguageService) serviceManager.getServiceWithID(4);
+    }
+
+    public static PermissionService getPermissionService() {
+        if (!(serviceManager.getServiceWithID(5) instanceof PermissionService))
+            throw new PencilException(
+                    Pencil.class,
+                    ExceptionReport.ExceptionType.INTERNALLY_RELATED,
+                    ExceptionReport.Severity.CRITICAL,
+                    DefaultStrings.format(DefaultStrings.UNEXPECTED_SERVICE_WITH_ID, 5, serviceManager.getServiceWithID(0).getClass().getSimpleName())
+            );
+        if (serviceManager.getServiceWithID(5) ==  null)
+            throw new PencilException(
+                    Pencil.class,
+                    ExceptionReport.ExceptionType.INTERNALLY_RELATED,
+                    ExceptionReport.Severity.CRITICAL,
+                    DefaultStrings.format(DefaultStrings.CANNOT_BE_NULL, "Service with ID 5")
+            );
+        return (PermissionService) serviceManager.getServiceWithID(5);
     }
 
     /**

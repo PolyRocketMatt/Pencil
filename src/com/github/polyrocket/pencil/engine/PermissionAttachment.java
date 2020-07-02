@@ -4,11 +4,9 @@ package com.github.polyrocket.pencil.engine;
 import com.github.polyrocket.pencil.engine.defaults.DefaultStrings;
 import com.github.polyrocket.pencil.engine.exception.PencilException;
 import com.github.polyrocket.pencil.engine.utils.ExceptionReport;
-import joptsimple.internal.Strings;
 
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.stream.Stream;
 
 /**
  * The type Permission attachment.

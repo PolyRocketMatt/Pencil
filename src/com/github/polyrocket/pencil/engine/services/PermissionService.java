@@ -10,8 +10,8 @@ import java.util.HashMap;
  * The type Permission service.
  */
 public class PermissionService extends Service {
-    private HashMap<PencilPlayer, PermissionAttachment> permissions;
 
+    private HashMap<PencilPlayer, PermissionAttachment> permissions;
 
     /**
      * Instantiates a new Permission service.
@@ -35,7 +35,6 @@ public class PermissionService extends Service {
     public void linkPlayersPermissions(PencilPlayer... players) {
         for (PencilPlayer player : players)
             linkPlayerPermissions(player);
-
     }
 
     /**
@@ -47,7 +46,6 @@ public class PermissionService extends Service {
         /* TODO: - Read PermissionAttachment from JSON file
                  - add association player
          */
-
     }
 
     public PermissionAttachment getPermissionAttachment(PencilPlayer player) {
@@ -56,11 +54,15 @@ public class PermissionService extends Service {
 
     @Override
     public int stop() {
+        permissions.clear();
+
         return 0;
     }
 
     @Override
     public String dump() {
-        return null;
+        /* TODO: - Dump all players with their respective permissions in a concise format
+         */
+        return "";
     }
 }

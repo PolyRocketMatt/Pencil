@@ -17,6 +17,7 @@ public class PencilPlayer {
     private final UUID uuid;
     private final int entityID;
 
+    private PermissionAttachment permissionAttachment;
     private PlayerInventory inventory;
 
     /**
@@ -31,6 +32,8 @@ public class PencilPlayer {
         this.player = player;
         this.uuid = player.getUniqueId();
         this.entityID = player.getEntityId();
+
+        this.permissionAttachment = Pencil.getPermissionService().getPermissionAttachment(this);
     }
 
     /**
@@ -99,6 +102,6 @@ public class PencilPlayer {
     }
 
     public PermissionAttachment getPermissionAttachment() {
-        return Pencil.getPermissionService().getPermissionAttachment(this);
+        return permissionAttachment;
     }
 }
