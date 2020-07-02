@@ -45,7 +45,9 @@ public class PermissionAttachment {
         if (!hasPermission(permission)) {
             permissions.add(permission);
             return true;
-        } else return false;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -64,7 +66,9 @@ public class PermissionAttachment {
         if (hasPermission(permission)) {
             permissions.remove(permission);
             return true;
-        } else return false;
+        } else {
+            return false;
+        }
 
     }
 
