@@ -97,4 +97,8 @@ public class PencilPlayer {
                 ", entityID=" + entityID +
                 '}';
     }
+
+    public PermissionAttachment getPermissionAttachment() {
+        return Pencil.getPermissionService().getPermissionAttachment(this);
+    }
 }
