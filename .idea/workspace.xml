@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="dd55b84a-7fbc-4f83-a0d6-d724a9bfabe3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Pencil.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/matth.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/intellij-javadocs-4.0.1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/smart_invs_1_2_7.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/spigot_1_16_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarIssues.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/5/25a3b99d27587e07b259cc1d525c25caddec8926" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Pencil.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/Pencil/Pencil.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/META-INF/Pencil.kotlin_module" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/Dumpable.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/Pencil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/PencilPlayer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/command/AbstractCommand$CommandType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/command/AbstractCommand.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/command/DumpCommand.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/defaults/DefaultHeads.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/defaults/DefaultInventories.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/defaults/DefaultItems.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/defaults/DefaultStrings.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/exception/PencilException.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/factories/InventoryFactory.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/factories/ItemFactory.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/factories/SkullFactory.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/gui/PencilGUI.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/gui/PlayerInventory.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/gui/action/Action.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/gui/action/BacktrackRoutineAction.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/gui/action/CloseInventoryAction.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/gui/action/IgnoreAction.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/gui/action/OpenInventoryAction.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/gui/action/PagingRoutineAction$PagingAction.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/gui/action/PagingRoutineAction.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/gui/inventories/AbstractInventory.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/gui/inventories/CustomInventory.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/gui/inventories/EditableInventory.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/gui/inventories/PagedInventory$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/gui/inventories/PagedInventory.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/listeners/ConnectionListener.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/listeners/PencilListener.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/managers/CommandManager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/managers/ServiceManager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/metrics/Metrics$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/metrics/Metrics$AdvancedBarChart.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/metrics/Metrics$AdvancedPie.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/metrics/Metrics$CustomChart.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/metrics/Metrics$DrilldownPie.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/metrics/Metrics$MultiLineChart.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/metrics/Metrics$SimpleBarChart.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/metrics/Metrics$SimplePie.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/metrics/Metrics$SingleLineChart.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/metrics/Metrics.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/services/EventService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/services/ExceptionService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/services/LanguageService$ServerLanguage.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/services/LanguageService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/services/MessageService$MessageType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/services/MessageService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/services/PlayerService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/services/Service.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/utils/DataDump.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/utils/ExceptionReport$ExceptionType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/utils/ExceptionReport$Severity.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/utils/ExceptionReport.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/com/github/polyrocketmatt/pencil/engine/utils/MiscellaneousUtils.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Pencil/plugin.yml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="Pencil" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="dev" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="C:\Users\matth\IdeaProjects\Pencil\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1duPF8pxVAUl42uwGLohmgW6S1f" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="dd55b84a-7fbc-4f83-a0d6-d724a9bfabe3" name="Default Changelist" comment="" />
+      <created>1593271898562</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1593271898562</updated>
+      <workItem from="1593271901159" duration="2279000" />
+      <workItem from="1593334036816" duration="4923000" />
+      <workItem from="1593338977303" duration="3034000" />
+      <workItem from="1593359957895" duration="9152000" />
+      <workItem from="1593405276780" duration="16000" />
+      <workItem from="1593405300667" duration="212000" />
+      <workItem from="1593445351517" duration="128000" />
+      <workItem from="1593447396530" duration="7500000" />
+      <workItem from="1593455760961" duration="104000" />
+      <workItem from="1593455873351" duration="102000" />
+      <workItem from="1593455983954" duration="18000" />
+      <workItem from="1593456010206" duration="4394000" />
+      <workItem from="1593465059503" duration="6982000" />
+      <workItem from="1593512166998" duration="1167000" />
+      <workItem from="1593523919306" duration="8267000" />
+      <workItem from="1593603042740" duration="3312000" />
+      <workItem from="1593609654012" duration="5742000" />
+      <workItem from="1593685324336" duration="1580000" />
+    </task>
+    <task id="LOCAL-00001" summary="Implement basic utilities (commands, services, etc)">
+      <created>1593365835484</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1593365835484</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Add formal documentation for PencilPlayer, AbstractCommand, PencilInventory">
+      <created>1593383476668</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1593383476668</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Add formal documentation for current project">
+      <created>1593450009236</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1593450009236</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Implement Inventory API">
+      <created>1593472706867</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1593472706867</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Add plugin.yml">
+      <created>1593472947813</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1593472947813</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Add ExceptionService to catches internal exceptions">
+      <created>1593603844660</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1593603844660</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Add Language Service">
+      <created>1593613145556</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1593613145557</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Change package structure&#10;Fix service ID bug">
+      <created>1593617739801</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1593617739801</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Fix bug where main class cannot be found">
+      <created>1593618090365</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1593618090365</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Fix bug where Plugin could be found">
+      <created>1593618239000</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1593618239000</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Fix version display issue">
+      <created>1593618412317</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1593618412317</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Finalize Permission Service">
+      <created>1593686751172</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1593686751172</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Implement basic utilities (commands, services, etc)" />
+    <MESSAGE value="Add formal documentation for PencilPlayer, AbstractCommand, PencilInventory" />
+    <MESSAGE value="Add formal documentation for current project" />
+    <MESSAGE value="Implement Inventory API" />
+    <MESSAGE value="Add plugin.yml" />
+    <MESSAGE value="Add ExceptionService to catches internal exceptions" />
+    <MESSAGE value="Add Language Service" />
+    <MESSAGE value="Change package structure&#10;Fix service ID bug" />
+    <MESSAGE value="Fix bug where main class cannot be found" />
+    <MESSAGE value="Fix bug where Plugin could be found" />
+    <MESSAGE value="Fix version display issue" />
+    <MESSAGE value="Finalize Permission Service" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finalize Permission Service" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="765" y="237" key="#com.intellij.ide.util.MemberChooser" timestamp="1593604589248">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="765" y="237" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1593604589248" />
+    <state x="756" y="406" width="452" height="237" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1593337471910">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="756" y="406" width="452" height="237" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040@0.0.1920.1040" timestamp="1593337471910" />
+    <state x="409" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1593449722439">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="409" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1593449722439" />
+    <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1593454127852">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1593454127852" />
+    <state x="707" y="253" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1593455892273">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="707" y="253" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1593455892273" />
+    <state x="585" y="115" key="CommitChangelistDialog2" timestamp="1593686750676">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="585" y="115" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1593686750676" />
+    <state x="666" y="262" key="FileChooserDialogImpl" timestamp="1593405502486">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="666" y="262" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1593405502486" />
+    <state x="648" y="455" width="343" height="280" key="Github.ShareDialog" timestamp="1593272096786">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="648" y="455" width="343" height="280" key="Github.ShareDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1593272096786" />
+    <state x="779" y="226" key="Github.UntrackedFilesDialog" timestamp="1593272111742">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="779" y="226" key="Github.UntrackedFilesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1593272111742" />
+    <state x="440" y="95" key="SettingsEditor" timestamp="1593617337957">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="440" y="95" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1593617337957" />
+    <state x="623" y="261" key="Vcs.Push.Dialog.v2" timestamp="1593686752602">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="261" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1593686752602" />
+    <state x="342" y="141" key="new project wizard" timestamp="1593606492517">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="342" y="141" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1593606492517" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1593467055587">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1593467055587" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1593455991456">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1593455991456" />
+  </component>
+</project>
