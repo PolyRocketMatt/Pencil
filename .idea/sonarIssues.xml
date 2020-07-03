@@ -13,6 +13,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/.gitignore">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/com/github/polyrocket/pencil/engine/Pencil.java">
           <value>
             <set />
@@ -238,7 +243,22 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/com/github/polyrocketmatt/pencil/engine/command/AbstractCommand.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/com/github/polyrocketmatt/pencil/engine/command/DumpCommand.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/com/github/polyrocketmatt/pencil/engine/defaults/DefaultStrings.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/com/github/polyrocketmatt/pencil/engine/exception/PencilException.java">
           <value>
             <set />
           </value>
