@@ -1,5 +1,5 @@
 name: PencilPlugin
-version: ALPHA_0.0.1
+version: 0.0.1_ALPHA
 api-version: 1.16
 main: com.github.polyrocketmatt.pencil.engine.Pencil
 description: A lightweight and powerful next generation terrain editor!

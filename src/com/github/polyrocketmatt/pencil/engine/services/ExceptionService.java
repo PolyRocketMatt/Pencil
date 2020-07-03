@@ -47,7 +47,7 @@ public class ExceptionService extends Service {
                     ExceptionReport.ExceptionType.INTERNALLY_RELATED,
                     ExceptionReport.Severity.MEDIUM,
                     DefaultStrings.format(DefaultStrings.CANNOT_BE_NULL, PencilException.class.getName())
-        );
+            );
         reports.put(MiscellaneousUtils.now(), exception.getReport());
     }
 

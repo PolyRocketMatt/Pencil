@@ -223,7 +223,32 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/com/github/polyrocketmatt/pencil/engine/PencilPlayer.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/com/github/polyrocketmatt/pencil/engine/PermissionAttachement.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/com/github/polyrocketmatt/pencil/engine/PermissionAttachment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/com/github/polyrocketmatt/pencil/engine/defaults/DefaultStrings.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/com/github/polyrocketmatt/pencil/engine/services/ExceptionService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/com/github/polyrocketmatt/pencil/engine/services/PermissionService.java">
           <value>
             <set />
           </value>
