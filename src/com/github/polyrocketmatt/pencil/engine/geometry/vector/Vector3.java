@@ -11,28 +11,28 @@ import java.util.Objects;
  *
  * @immutable abstraction of a 3 dimensional vector.
  */
-public class Vector {
+public class Vector3 {
 
     /**
      * The constant unit vector in the x direction.
      */
-    public static final Vector UNIT_X = new Vector(1, 0, 0);
+    public static final Vector3 UNIT_X = new Vector3(1, 0, 0);
     /**
      * The constant unit vector in the y direction.
      */
-    public static final Vector UNIT_Y = new Vector(0, 1, 0);
+    public static final Vector3 UNIT_Y = new Vector3(0, 1, 0);
     /**
      * The constant unit vector in the z direction.
      */
-    public static final Vector UNIT_Z = new Vector(0, 0, 1);
+    public static final Vector3 UNIT_Z = new Vector3(0, 0, 1);
     /**
      * The constant unit vector.
      */
-    public static final Vector UNIT = new Vector(1, 1, 1);
+    public static final Vector3 UNIT = new Vector3(1, 1, 1);
     /**
      * The constant zero vector in the x direction.
      */
-    public static final Vector ZERO = new Vector(0, 0, 0);
+    public static final Vector3 ZERO = new Vector3(0, 0, 0);
 
     private final float x;
     private final float y;
@@ -45,7 +45,7 @@ public class Vector {
      * @param y the y
      * @param z the z
      */
-    public Vector(int x, int y, int z) {
+    public Vector3(int x, int y, int z) {
         this.x = x;
         this.y = y;
         this.z = z;
@@ -58,7 +58,7 @@ public class Vector {
      * @param y the y
      * @param z the z
      */
-    public Vector(float x, float y, float z) {
+    public Vector3(float x, float y, float z) {
         this.x = x;
         this.y = y;
         this.z = z;
@@ -126,8 +126,8 @@ public class Vector {
      * @param z the z-addition
      * @return the vector
      */
-    public Vector plus(int x, int y, int z) {
-        return new Vector(this.x + x, this.y + y, this.z + z);
+    public Vector3 plus(int x, int y, int z) {
+        return new Vector3(this.x + x, this.y + y, this.z + z);
     }
 
     /**
@@ -138,8 +138,8 @@ public class Vector {
      * @param z the z-addition
      * @return the vector
      */
-    public Vector plus(float x, float y, float z) {
-        return new Vector(this.x + x, this.y + y, this.z + z);
+    public Vector3 plus(float x, float y, float z) {
+        return new Vector3(this.x + x, this.y + y, this.z + z);
     }
 
     /**
@@ -148,8 +148,8 @@ public class Vector {
      * @param n the n-addition
      * @return the vector
      */
-    public Vector plus(int n) {
-        return new Vector(this.x + n, this.y + n, this.z + n);
+    public Vector3 plus(int n) {
+        return new Vector3(this.x + n, this.y + n, this.z + n);
     }
 
     /**
@@ -158,8 +158,8 @@ public class Vector {
      * @param n the n-addition
      * @return the vector
      */
-    public Vector plus(float n) {
-        return new Vector(this.x + n, this.y + n, this.z + n);
+    public Vector3 plus(float n) {
+        return new Vector3(this.x + n, this.y + n, this.z + n);
     }
 
     /**
@@ -170,8 +170,8 @@ public class Vector {
      * @param z the z-subtraction
      * @return the vector
      */
-    public Vector minus(int x, int y, int z) {
-        return new Vector(this.x - x, this.y - y, this.z - z);
+    public Vector3 minus(int x, int y, int z) {
+        return new Vector3(this.x - x, this.y - y, this.z - z);
     }
 
     /**
@@ -182,8 +182,8 @@ public class Vector {
      * @param z the z-subtraction
      * @return the vector
      */
-    public Vector minus(float x, float y, float z) {
-        return new Vector(this.x - x, this.y - y, this.z - z);
+    public Vector3 minus(float x, float y, float z) {
+        return new Vector3(this.x - x, this.y - y, this.z - z);
     }
 
     /**
@@ -192,8 +192,8 @@ public class Vector {
      * @param n the n-subtraction
      * @return the vector
      */
-    public Vector minus(int n) {
-        return new Vector(this.x - n, this.y - n, this.z - n);
+    public Vector3 minus(int n) {
+        return new Vector3(this.x - n, this.y - n, this.z - n);
     }
 
     /**
@@ -202,8 +202,8 @@ public class Vector {
      * @param n the n-subtraction
      * @return the vector
      */
-    public Vector minus(float n) {
-        return new Vector(this.x - n, this.y - n, this.z - n);
+    public Vector3 minus(float n) {
+        return new Vector3(this.x - n, this.y - n, this.z - n);
     }
 
     /**
@@ -214,8 +214,8 @@ public class Vector {
      * @param z the z-multiplier
      * @return the vector
      */
-    public Vector multiply(int x, int y, int z) {
-        return new Vector(this.x * x, this.y * y, this.z * z);
+    public Vector3 multiply(int x, int y, int z) {
+        return new Vector3(this.x * x, this.y * y, this.z * z);
     }
 
     /**
@@ -226,8 +226,8 @@ public class Vector {
      * @param z the z-multiplier
      * @return the vector
      */
-    public Vector multiply(float x, float y, float z) {
-        return new Vector(this.x * x, this.y * y, this.z * z);
+    public Vector3 multiply(float x, float y, float z) {
+        return new Vector3(this.x * x, this.y * y, this.z * z);
     }
 
     /**
@@ -236,8 +236,8 @@ public class Vector {
      * @param n the n-multiplier
      * @return the vector
      */
-    public Vector multiply(int n) {
-        return new Vector(this.x * n, this.y * n, this.z * n);
+    public Vector3 multiply(int n) {
+        return new Vector3(this.x * n, this.y * n, this.z * n);
     }
 
     /**
@@ -246,8 +246,8 @@ public class Vector {
      * @param n the n-multiplier
      * @return the vector
      */
-    public Vector multiply(float n) {
-        return new Vector(this.x * n, this.y * n, this.z * n);
+    public Vector3 multiply(float n) {
+        return new Vector3(this.x * n, this.y * n, this.z * n);
     }
 
     /**
@@ -258,8 +258,8 @@ public class Vector {
      * @param z the z-divisor
      * @return the vector
      */
-    public Vector divide(int x, int y, int z) {
-        return new Vector(this.x / x, this.y / y, this.z / z);
+    public Vector3 divide(int x, int y, int z) {
+        return new Vector3(this.x / x, this.y / y, this.z / z);
     }
 
     /**
@@ -270,8 +270,8 @@ public class Vector {
      * @param z the z-divisor
      * @return the vector
      */
-    public Vector divide(float x, float y, float z) {
-        return new Vector(this.x / x, this.y / y, this.z / z);
+    public Vector3 divide(float x, float y, float z) {
+        return new Vector3(this.x / x, this.y / y, this.z / z);
     }
 
     /**
@@ -280,8 +280,8 @@ public class Vector {
      * @param n the divisor
      * @return the vector
      */
-    public Vector divide(int n) {
-        return new Vector(this.x / n, this.y / n, this.z / n);
+    public Vector3 divide(int n) {
+        return new Vector3(this.x / n, this.y / n, this.z / n);
     }
 
     /**
@@ -290,8 +290,8 @@ public class Vector {
      * @param n the divisor
      * @return the vector
      */
-    public Vector divide(float n) {
-        return new Vector(this.x / n, this.y / n, this.z / n);
+    public Vector3 divide(float n) {
+        return new Vector3(this.x / n, this.y / n, this.z / n);
     }
 
     /**
@@ -327,7 +327,7 @@ public class Vector {
      * @param other the other
      * @return the float
      */
-    public float distance(Vector other) {
+    public float distance(Vector3 other) {
         return (float) Math.sqrt(distanceSquared(other));
     }
 
@@ -337,7 +337,7 @@ public class Vector {
      * @param other the other
      * @return the int
      */
-    public int blockDistance(Vector other) {
+    public int blockDistance(Vector3 other) {
         return (int) distance(other);
     }
 
@@ -347,7 +347,7 @@ public class Vector {
      * @param other the other
      * @return the float
      */
-    public float distanceSquared(Vector other) {
+    public float distanceSquared(Vector3 other) {
         if (other == null)
             throw new PencilException(
                     getClass(),
@@ -368,7 +368,7 @@ public class Vector {
      *
      * @return the vector
      */
-    public Vector normalize() {
+    public Vector3 normalize() {
         return divide(length());
     }
 
@@ -378,7 +378,7 @@ public class Vector {
      * @param other the other
      * @return the vector
      */
-    public Vector dot(Vector other) {
+    public Vector3 dot(Vector3 other) {
         if (other == null)
             throw new PencilException(
                     getClass(),
@@ -387,7 +387,7 @@ public class Vector {
                     DefaultStrings.format(DefaultStrings.CANNOT_BE_NULL, "Calculation Vector"),
                     this
             );
-        return new Vector(other.x * x, other.y * y, other.z * z);
+        return new Vector3(other.x * x, other.y * y, other.z * z);
     }
 
     /**
@@ -396,7 +396,7 @@ public class Vector {
      * @param other the other
      * @return the vector
      */
-    public Vector cross(Vector other) {
+    public Vector3 cross(Vector3 other) {
         if (other == null)
             throw new PencilException(
                     getClass(),
@@ -405,7 +405,7 @@ public class Vector {
                     DefaultStrings.format(DefaultStrings.CANNOT_BE_NULL, "Calculation Vector"),
                     this
             );
-        return new Vector(
+        return new Vector3(
                 y * other.z - z * other.y,
                 z * other.x - x * other.z,
                 x * other.y - y * other.x
@@ -419,7 +419,7 @@ public class Vector {
      * @param max the max
      * @return the boolean
      */
-    public boolean contained(Vector min, Vector max) {
+    public boolean contained(Vector3 min, Vector3 max) {
         return x >= min.x && x <= max.x
                 && y >= min.y && y <= max.y
                 && z >= min.z && z <= max.z;
@@ -430,8 +430,8 @@ public class Vector {
      *
      * @return the vector
      */
-    public Vector floor() {
-        return new Vector((float) Math.floor(x), (float) Math.floor(y), (float) Math.floor(z));
+    public Vector3 floor() {
+        return new Vector3((float) Math.floor(x), (float) Math.floor(y), (float) Math.floor(z));
     }
 
     /**
@@ -439,8 +439,8 @@ public class Vector {
      *
      * @return the vector
      */
-    public Vector ceil() {
-        return new Vector((float) Math.ceil(x), (float) Math.ceil(y), (float) Math.ceil(z));
+    public Vector3 ceil() {
+        return new Vector3((float) Math.ceil(x), (float) Math.ceil(y), (float) Math.ceil(z));
     }
 
     /**
@@ -448,8 +448,8 @@ public class Vector {
      *
      * @return the vector
      */
-    public Vector round() {
-        return new Vector((float) Math.round(x), (float) Math.round(y), (float) Math.round(z));
+    public Vector3 round() {
+        return new Vector3((float) Math.round(x), (float) Math.round(y), (float) Math.round(z));
     }
 
     /**
@@ -457,8 +457,8 @@ public class Vector {
      *
      * @return the vector
      */
-    public Vector abs() {
-        return new Vector(Math.abs(x), Math.abs(y), Math.abs(z));
+    public Vector3 abs() {
+        return new Vector3(Math.abs(x), Math.abs(y), Math.abs(z));
     }
 
     /**
@@ -467,7 +467,7 @@ public class Vector {
      * @param other the other
      * @return the vector
      */
-    public Vector toMinimumComponent(Vector other) {
+    public Vector3 toMinimumComponent(Vector3 other) {
         if (other == null)
             throw new PencilException(
                     getClass(),
@@ -476,7 +476,7 @@ public class Vector {
                     DefaultStrings.format(DefaultStrings.CANNOT_BE_NULL, "Calculation Vector"),
                     this
             );
-        return new Vector(
+        return new Vector3(
                 Math.min(other.x, x),
                 Math.min(other.y, y),
                 Math.min(other.z, z)
@@ -489,7 +489,7 @@ public class Vector {
      * @param other the other
      * @return the vector
      */
-    public Vector toMaximumComponent(Vector other) {
+    public Vector3 toMaximumComponent(Vector3 other) {
         if (other == null)
             throw new PencilException(
                     getClass(),
@@ -498,11 +498,20 @@ public class Vector {
                     DefaultStrings.format(DefaultStrings.CANNOT_BE_NULL, "Calculation Vector"),
                     this
             );
-        return new Vector(
+        return new Vector3(
                 Math.max(other.x, x),
                 Math.max(other.y, y),
                 Math.max(other.z, z)
         );
+    }
+
+    /**
+     * To vector 2D.
+     *
+     * @return the vec
+     */
+    public Vector2 toVector2D() {
+        return new Vector2(this.x, this.z);
     }
 
     @Override
@@ -518,7 +527,7 @@ public class Vector {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Vector vector = (Vector) o;
+        Vector3 vector = (Vector3) o;
         return Float.compare(vector.x, x) == 0 &&
                 Float.compare(vector.y, y) == 0 &&
                 Float.compare(vector.z, z) == 0;
