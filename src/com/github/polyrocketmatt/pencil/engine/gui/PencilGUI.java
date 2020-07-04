@@ -5,9 +5,7 @@ package com.github.polyrocketmatt.pencil.engine.gui;
  */
 
 public class PencilGUI {
-
     public PencilGUI() {
 
     }
-
 }

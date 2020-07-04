@@ -1,6 +1,7 @@
 package com.github.polyrocketmatt.pencil.engine.managers;
 
 import com.github.polyrocketmatt.pencil.engine.PencilPlayer;
+import com.github.polyrocketmatt.pencil.engine.command.Gui;
 import com.github.polyrocketmatt.pencil.engine.command.WandCommand;
 import com.github.polyrocketmatt.pencil.engine.defaults.DefaultStrings;
 import com.github.polyrocketmatt.pencil.engine.exception.PencilException;
@@ -34,6 +35,7 @@ public class CommandManager implements CommandExecutor {
         this.commands = new HashSet<>();
         this.commands.add(new DumpCommand("dump", AbstractCommand.CommandType.CONSOLE));
         this.commands.add(new WandCommand("wand", AbstractCommand.CommandType.PLAYER));
+        this.commands.add(new Gui("gui", AbstractCommand.CommandType.PLAYER));
     }
 
     @Override
