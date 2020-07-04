@@ -1,5 +1,6 @@
 package com.github.polyrocketmatt.pencil.engine.services;
 
+import com.github.polyrocketmatt.pencil.engine.Pencil;
 import com.github.polyrocketmatt.pencil.engine.PencilPlayer;
 import com.github.polyrocketmatt.pencil.engine.defaults.DefaultStrings;
 import com.github.polyrocketmatt.pencil.engine.exception.PencilException;
@@ -7,6 +8,7 @@ import com.github.polyrocketmatt.pencil.engine.utils.ExceptionReport;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.stream.Collectors;
 
@@ -30,9 +32,11 @@ public class PlayerService extends Service {
     public int start() {
         System.out.println("[Pencil] >> Managing existing entities...");
         addPlayers(Bukkit.getOnlinePlayers().toArray(new Player[Bukkit.getOnlinePlayers().size()]));
-
+        linkPlayerPermissions();
         return 0;
     }
+
+
 
     @Override
     public int stop() {
@@ -158,5 +162,17 @@ public class PlayerService extends Service {
         return "PlayerService{" +
                 "players=" + players.size() +
                 '}';
+    }
+
+    private void linkPlayerPermissions() {
+        HashMap<String, HashSet<String>> permissions = Pencil.getPermissionService().getReadStorage();
+        for (PencilPlayer player: getPlayers()) {
+            for (String permission : permissions.keySet()){
+                if(permissions.get(permission).contains(player.getUUID().toString())){
+                    player.getPermissionAttachment().setPermission(permission);
+                }
+            }
+        }
+        Pencil.getPermissionService().clearReadStorage();
     }
 }
