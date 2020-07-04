@@ -112,6 +112,8 @@ public class PencilPlayer {
         this.selection = selection;
     }
 
+
+
     /**
      * Clear inventory status.
      * TODO: Clear player inventory as well?
