@@ -1,5 +1,6 @@
 package com.github.polyrocketmatt.pencil.engine;
 
+import com.github.polyrocketmatt.pencil.engine.geometry.selection.AbstractSelection;
 import com.github.polyrocketmatt.pencil.engine.gui.PlayerInventory;
 import org.bukkit.entity.Player;
 
@@ -17,8 +18,9 @@ public class PencilPlayer {
     private final UUID uuid;
     private final int entityID;
 
-    private PermissionAttachment permissionAttachment;
+    private final PermissionAttachment permissionAttachment;
     private PlayerInventory inventory;
+    private AbstractSelection selection;
 
     /**
      * Instantiates a new Pencil player.
@@ -64,6 +66,15 @@ public class PencilPlayer {
     }
 
     /**
+     * Gets permission attachment.
+     *
+     * @return the permission attachment
+     */
+    public PermissionAttachment getPermissionAttachment() {
+        return permissionAttachment;
+    }
+
+    /**
      * Gets inventory.
      *
      * @return the inventory
@@ -83,8 +94,22 @@ public class PencilPlayer {
         this.inventory = newInventory;
     }
 
-    public PermissionAttachment getPermissionAttachment() {
-        return permissionAttachment;
+    /**
+     * Gets selection.
+     *
+     * @return the selection
+     */
+    public AbstractSelection getSelection() {
+        return selection;
+    }
+
+    /**
+     * Sets selection.
+     *
+     * @param selection the selection
+     */
+    public void setSelection(AbstractSelection selection) {
+        this.selection = selection;
     }
 
     /**
