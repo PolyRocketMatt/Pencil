@@ -17,6 +17,8 @@ public class PencilPlayer {
     private final UUID uuid;
     private final int entityID;
 
+
+
     private PermissionAttachment permissionAttachment;
     private PlayerInventory inventory;
 
@@ -86,6 +88,8 @@ public class PencilPlayer {
     public PermissionAttachment getPermissionAttachment() {
         return permissionAttachment;
     }
+
+
 
     /**
      * Clear inventory status.

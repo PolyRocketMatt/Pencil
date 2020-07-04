@@ -63,7 +63,6 @@ public class PermissionService extends Service {
             for (Object object: permissions.keySet()) {
                 readStorage.put((String) object, (HashSet<String>) permissions.get(object));
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         }
