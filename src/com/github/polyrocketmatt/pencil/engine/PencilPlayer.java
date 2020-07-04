@@ -19,7 +19,7 @@ public class PencilPlayer {
 
 
 
-    private PermissionAttachment permissionAttachment;
+    private final PermissionAttachment permissionAttachment;
     private PlayerInventory inventory;
 
     /**
