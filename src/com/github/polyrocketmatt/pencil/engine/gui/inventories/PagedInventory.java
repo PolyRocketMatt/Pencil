@@ -16,7 +16,8 @@ import java.util.Map;
 
 public class PagedInventory implements AbstractInventory, Iterable<CustomInventory> {
 
-    private Map<Integer, CustomInventory> inventories;
+    private final Map<Integer, CustomInventory> inventories;
+    private final int maxPages;
     private int currentPage;
 
     public PagedInventory(List<CustomInventory> inventories) {
@@ -24,6 +25,7 @@ public class PagedInventory implements AbstractInventory, Iterable<CustomInvento
         this.currentPage = 0;
         for (int i = 0; i < inventories.size(); i++)
             this.inventories.put(i, inventories.get(i));
+        this.maxPages = inventories.size();
     }
 
     @Override
@@ -79,11 +81,21 @@ public class PagedInventory implements AbstractInventory, Iterable<CustomInvento
     }
 
     public CustomInventory next() {
-        return getInventoryAtPage(++currentPage);
+        if (currentPage == maxPages) {
+            currentPage = 0;
+
+            return getInventoryAtPage(currentPage);
+        } else
+            return getInventoryAtPage(++currentPage);
     }
 
     public CustomInventory previous() {
-        return getInventoryAtPage(--currentPage);
+        if (currentPage == 0) {
+            currentPage = maxPages;
+
+            return getInventoryAtPage(currentPage);
+        } else
+            return getInventoryAtPage(--currentPage);
     }
 
 }

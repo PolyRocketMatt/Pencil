@@ -9,7 +9,7 @@ import com.github.polyrocketmatt.pencil.engine.utils.ExceptionReport;
  * Created by PolyRocketMatt on 30/06/2020.
  */
 
-public class BacktrackRoutineAction implements Action {
+public class BacktrackRoutineAction implements InventoryAction {
 
     public BacktrackRoutineAction(Object... actionObjects) { trigger(actionObjects); }
 

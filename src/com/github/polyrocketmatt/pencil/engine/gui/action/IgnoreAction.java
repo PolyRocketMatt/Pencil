@@ -8,7 +8,7 @@ import com.github.polyrocketmatt.pencil.engine.utils.ExceptionReport;
  * Created by PolyRocketMatt on 30/06/2020.
  */
 
-public class IgnoreAction implements Action {
+public class IgnoreAction implements InventoryAction {
 
     public IgnoreAction() { /* Constructor does not need to initialize anything */ }
 

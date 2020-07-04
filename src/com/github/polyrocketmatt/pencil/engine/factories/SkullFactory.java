@@ -48,9 +48,10 @@ public class SkullFactory {
         return itemWithBase64(item, urlToBase64(url));
     }
 
-    public static ItemStack itemFromBase64(String base64) {
+    public static ItemStack itemFromBase64(String base64, String name) {
         ItemStack item = getPlayerSkullItem();
-        return itemWithBase64(item, base64);
+
+        return ItemFactory.update(itemWithBase64(item, base64), name, true);
     }
 
     public static ItemStack itemWithBase64(ItemStack item, String base64) {

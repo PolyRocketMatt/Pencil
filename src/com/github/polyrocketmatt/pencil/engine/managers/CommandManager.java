@@ -1,6 +1,7 @@
 package com.github.polyrocketmatt.pencil.engine.managers;
 
 import com.github.polyrocketmatt.pencil.engine.PencilPlayer;
+import com.github.polyrocketmatt.pencil.engine.command.WandCommand;
 import com.github.polyrocketmatt.pencil.engine.defaults.DefaultStrings;
 import com.github.polyrocketmatt.pencil.engine.exception.PencilException;
 import com.github.polyrocketmatt.pencil.engine.services.MessageService;
@@ -32,6 +33,7 @@ public class CommandManager implements CommandExecutor {
     public CommandManager() {
         this.commands = new HashSet<>();
         this.commands.add(new DumpCommand("dump", AbstractCommand.CommandType.CONSOLE));
+        this.commands.add(new WandCommand("wand", AbstractCommand.CommandType.PLAYER));
     }
 
     @Override
@@ -43,14 +45,24 @@ public class CommandManager implements CommandExecutor {
                 return true;
             } else {
                 if (args[0].equalsIgnoreCase("help")) {
-                    if (sender instanceof Player)
-                        getCommandsOfType(AbstractCommand.CommandType.PLAYER).forEach(
-                                command -> getMessageService().messageSender(sender, MessageService.MessageType.INFO, command.getName() + " - " + command.getHelp())
-                        );
-                    else
-                        getCommandsOfType(AbstractCommand.CommandType.CONSOLE).forEach(
-                                command -> getMessageService().messageSender(sender, MessageService.MessageType.INFO, command.getName() + " - " + command.getHelp())
-                        );
+                    if (args.length == 2 && args[1].equalsIgnoreCase("-a")) {
+                        if (!(sender instanceof Player)) {
+                            getCommandsOfType(AbstractCommand.CommandType.PLAYER).forEach(
+                                    command -> getMessageService().messageSender(sender, MessageService.MessageType.INFO, command.getName() + " - " + command.getHelp())
+                            );
+                            getCommandsOfType(AbstractCommand.CommandType.CONSOLE).forEach(
+                                    command -> getMessageService().messageSender(sender, MessageService.MessageType.INFO, command.getName() + " - " + command.getHelp())
+                            );
+                        }
+                    } else
+                        if (sender instanceof Player)
+                            getCommandsOfType(AbstractCommand.CommandType.PLAYER).forEach(
+                                    command -> getMessageService().messageSender(sender, MessageService.MessageType.INFO, command.getName() + " - " + command.getHelp())
+                            );
+                        else
+                            getCommandsOfType(AbstractCommand.CommandType.CONSOLE).forEach(
+                                    command -> getMessageService().messageSender(sender, MessageService.MessageType.INFO, command.getName() + " - " + command.getHelp())
+                            );
                 } else {
                     AbstractCommand command = commands.stream()
                             .filter(consoleCommand -> consoleCommand.getName().equalsIgnoreCase(args[0]))

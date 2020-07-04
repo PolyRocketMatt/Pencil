@@ -10,7 +10,7 @@ import com.github.polyrocketmatt.pencil.engine.utils.ExceptionReport;
  * Created by PolyRocketMatt on 29/06/2020.
  */
 
-public class PagingRoutineAction implements Action {
+public class PagingRoutineAction implements InventoryAction {
 
     public enum PagingAction {
         NEXT,

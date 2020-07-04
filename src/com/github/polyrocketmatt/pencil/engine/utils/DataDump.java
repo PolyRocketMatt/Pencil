@@ -1,12 +1,8 @@
 package com.github.polyrocketmatt.pencil.engine.utils;
 
 import com.github.polyrocketmatt.pencil.engine.Pencil;
-import org.bukkit.util.io.BukkitObjectOutputStream;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.Serializable;
-import java.util.zip.GZIPOutputStream;
+import java.io.*;
 
 /**
  * Created by PolyRocketMatt on 28/06/2020.
@@ -29,15 +25,26 @@ public class DataDump implements Serializable {
         return successfulDump;
     }
 
-    public static boolean generateDump(String file, Object... objects) {
+    public static boolean generateDump(String path, Object... objects) {
         try {
             System.out.println("[Pencil] >> Initiating data dump...");
-            BukkitObjectOutputStream out = new BukkitObjectOutputStream(new GZIPOutputStream(new FileOutputStream(file)));
+            File file = new File(Pencil.getPlugin().getDataFolder() + "/dumps/", path);
 
-            for (Object object : objects)
-                out.writeObject(object.toString());
+            if (!file.exists()) {
+                file.getParentFile().mkdirs();
+                file.createNewFile();
+            }
 
-            out.close();
+            BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+
+            for (Object object : objects) {
+                writer.write(object.toString());
+                writer.newLine();
+            }
+
+            writer.flush();
+            writer.close();
+
             System.out.println("[Pencil] >> Data dump finished!");
 
             return true;

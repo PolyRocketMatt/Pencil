@@ -7,17 +7,19 @@ import org.bukkit.inventory.ItemStack;
 /**
  * Created by PolyRocketMatt on 30/06/2020.
  */
-public class EditableInventory {
+public class EditableInventory implements AbstractInventory {
 
-    private Inventory inventory;
+    private final Inventory inventory;
+    private final int slots;
 
     /**
      * Instantiates a new Editable inventory.
      *
      * @param inventory the inventory
      */
-    public EditableInventory(Inventory inventory) {
+    public EditableInventory(Inventory inventory, int slots) {
         this.inventory = inventory;
+        this.slots = slots;
     }
 
     /**
@@ -25,53 +27,54 @@ public class EditableInventory {
      *
      * @return the inventory
      */
+    @Override
     public Inventory getInventory() {
         return inventory;
+    }
+
+    public int getSlots() {
+        return slots;
     }
 
     /**
      * Of editable inventory.
      *
-     * @param inventory the inventory
      * @param name      the name
      * @return the editable inventory
      */
-    public EditableInventory of(EditableInventory inventory, String name) {
-        return InventoryFactory.createInventory(name, inventory.getInventory().getSize());
+    public EditableInventory of(String name) {
+        return InventoryFactory.createInventory(name, this.getInventory().getSize());
     }
 
     /**
      * Fill editable inventory.
      *
-     * @param representation the representation
      * @param name           the name
      * @param item           the item
      * @return the editable inventory
      */
-    public EditableInventory fill(EditableInventory representation, String name, ItemStack item) {
-        return InventoryFactory.fill(representation, name, item);
+    public EditableInventory fill(String name, ItemStack item) {
+        return InventoryFactory.fill(this, name, item);
     }
 
     /**
      * Menufy editable inventory.
      *
-     * @param representation the representation
      * @param name           the name
      * @return the editable inventory
      */
-    public EditableInventory menu(EditableInventory representation, String name) {
-        return InventoryFactory.menu(representation, name);
+    public EditableInventory menu(String name) {
+        return InventoryFactory.menu(this, name);
     }
 
     /**
      * Paginate editable inventory.
      *
-     * @param representation the representation
      * @param name           the name
      * @return the editable inventory
      */
-    public EditableInventory paginate(EditableInventory representation, String name) {
-        return InventoryFactory.paginate(representation, name);
+    public EditableInventory paginate(String name) {
+        return InventoryFactory.paginate(this, name);
     }
 
     /**

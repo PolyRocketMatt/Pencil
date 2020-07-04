@@ -65,7 +65,7 @@ public class Pencil extends JavaPlugin {
      * @return the plugin
      */
     public static Plugin getPlugin() {
-        return Bukkit.getServer().getPluginManager().getPlugin("Pencil");
+        return Bukkit.getServer().getPluginManager().getPlugin("PencilPlugin");
     }
 
     /**
@@ -104,7 +104,7 @@ public class Pencil extends JavaPlugin {
                     Pencil.class,
                     ExceptionReport.ExceptionType.INTERNALLY_RELATED,
                     ExceptionReport.Severity.CRITICAL,
-                    DefaultStrings.format(DefaultStrings.CANNOT_BE_NULL, "Service with ID 0")
+                    DefaultStrings.format(DefaultStrings.NON_EXISTING_SERIVE_WITH_ID, 0)
             );
         return (MessageService) serviceManager.getServiceWithID(0);
     }
@@ -127,7 +127,7 @@ public class Pencil extends JavaPlugin {
                     Pencil.class,
                     ExceptionReport.ExceptionType.INTERNALLY_RELATED,
                     ExceptionReport.Severity.CRITICAL,
-                    DefaultStrings.format(DefaultStrings.CANNOT_BE_NULL, "Service with ID 1")
+                    DefaultStrings.format(DefaultStrings.NON_EXISTING_SERIVE_WITH_ID, 1)
             );
         return (PlayerService) serviceManager.getServiceWithID(1);
     }
@@ -150,7 +150,7 @@ public class Pencil extends JavaPlugin {
                     Pencil.class,
                     ExceptionReport.ExceptionType.INTERNALLY_RELATED,
                     ExceptionReport.Severity.CRITICAL,
-                    DefaultStrings.format(DefaultStrings.CANNOT_BE_NULL, "Service with ID 2")
+                    DefaultStrings.format(DefaultStrings.NON_EXISTING_SERIVE_WITH_ID, 2)
             );
         return (EventService) serviceManager.getServiceWithID(2);
     }
@@ -168,7 +168,7 @@ public class Pencil extends JavaPlugin {
                     Pencil.class,
                     ExceptionReport.ExceptionType.INTERNALLY_RELATED,
                     ExceptionReport.Severity.CRITICAL,
-                    DefaultStrings.format(DefaultStrings.CANNOT_BE_NULL, "Service with ID 3")
+                    DefaultStrings.format(DefaultStrings.NON_EXISTING_SERIVE_WITH_ID, 3)
             );
         return (ExceptionService) serviceManager.getServiceWithID(3);
     }
@@ -186,7 +186,7 @@ public class Pencil extends JavaPlugin {
                     Pencil.class,
                     ExceptionReport.ExceptionType.INTERNALLY_RELATED,
                     ExceptionReport.Severity.CRITICAL,
-                    DefaultStrings.format(DefaultStrings.CANNOT_BE_NULL, "Service with ID 4")
+                    DefaultStrings.format(DefaultStrings.NON_EXISTING_SERIVE_WITH_ID, 4)
             );
         return (LanguageService) serviceManager.getServiceWithID(4);
     }
@@ -204,7 +204,7 @@ public class Pencil extends JavaPlugin {
                     Pencil.class,
                     ExceptionReport.ExceptionType.INTERNALLY_RELATED,
                     ExceptionReport.Severity.CRITICAL,
-                    DefaultStrings.format(DefaultStrings.CANNOT_BE_NULL, "Service with ID 5")
+                    DefaultStrings.format(DefaultStrings.NON_EXISTING_SERIVE_WITH_ID, 5)
             );
         return (PermissionService) serviceManager.getServiceWithID(5);
     }

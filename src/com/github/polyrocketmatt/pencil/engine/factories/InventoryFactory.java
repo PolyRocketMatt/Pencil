@@ -21,7 +21,7 @@ public class InventoryFactory {
     public final static EditableInventory ROWS_5 = createInventory(PREFIX, 45);
     public final static EditableInventory ROWS_6 = createInventory(PREFIX, 54);
 
-    public static EditableInventory createInventory(String name, int slots) { return new EditableInventory(Bukkit.createInventory(null, slots, PREFIX + name)); }
+    public static EditableInventory createInventory(String name, int slots) { return new EditableInventory(Bukkit.createInventory(null, slots, PREFIX + name), slots); }
 
     public static EditableInventory of(EditableInventory inventory, String name) {
         return InventoryFactory.createInventory(name, inventory.getInventory().getSize());
@@ -38,7 +38,7 @@ public class InventoryFactory {
     public static EditableInventory menu(EditableInventory representation, String name) {
         EditableInventory inventory = fill(representation, name, DefaultItems.FILLER);
 
-        int row = inventory.getInventory().getSize() % 9;
+        int row = inventory.getSlots() - 9;
 
         inventory.getInventory().setItem(row + 4, DefaultItems.CLOSE);
 

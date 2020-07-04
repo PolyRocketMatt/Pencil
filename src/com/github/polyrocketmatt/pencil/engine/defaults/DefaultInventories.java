@@ -1,8 +1,13 @@
 package com.github.polyrocketmatt.pencil.engine.defaults;
 
 import com.github.polyrocketmatt.pencil.engine.factories.InventoryFactory;
+import com.github.polyrocketmatt.pencil.engine.gui.action.CloseInventoryAction;
+import com.github.polyrocketmatt.pencil.engine.gui.inventories.CustomInventory;
 import org.bukkit.ChatColor;
-import org.bukkit.inventory.Inventory;
+
+import java.util.HashMap;
+
+import static com.github.polyrocketmatt.pencil.engine.Pencil.PREFIX;
 
 /**
  * Created by PolyRocketMatt on 30/06/2020.
@@ -10,10 +15,18 @@ import org.bukkit.inventory.Inventory;
 
 public class DefaultInventories {
 
-    public static final Inventory PENCIL_MENU = InventoryFactory.menu(InventoryFactory.ROWS_3, ChatColor.DARK_GRAY + "Menu")
-            .populate(11, DefaultItems.WAND)
-            .populate(16, DefaultItems.HELP)
-            .populate(17, DefaultItems.GLOBAL)
-            .getInventory();
-
+    public static final CustomInventory PENCIL_MENU = new CustomInventory(
+            new HashMap<>() {{
+                put(23, new CloseInventoryAction());
+            }},
+            InventoryFactory.menu(InventoryFactory.ROWS_3, PREFIX + ChatColor.DARK_GRAY + "Menu")
+                    .populate(10, DefaultItems.WAND)
+                    .populate(15, DefaultItems.HELP)
+                    .populate(16, DefaultItems.GLOBAL)
+                    .getInventory(),
+            ChatColor.DARK_GRAY + "Menu",
+            3,
+            9,
+            0
+    );
 }

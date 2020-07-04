@@ -44,13 +44,4 @@ public class DumpCommand extends AbstractCommand {
         return 0;
     }
 
-    @Override
-    public String getName() {
-        return super.getName();
-    }
-
-    @Override
-    public CommandType getType() {
-        return super.getType();
-    }
 }
