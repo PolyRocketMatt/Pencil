@@ -48,11 +48,11 @@ public class InventoryFactory {
     public static EditableInventory paginate(EditableInventory representation, String name) {
         EditableInventory inventory = fill(representation, name, DefaultItems.FILLER);
 
-        int row = inventory.getInventory().getSize() % 9;
+        int row = inventory.getInventory().getSize();
 
-        inventory.getInventory().setItem(row + 4, DefaultItems.CLOSE);
-        inventory.getInventory().setItem(row, DefaultItems.PREVIOUS);
-        inventory.getInventory().setItem(row + 8, DefaultItems.NEXT);
+        inventory.getInventory().setItem(row - 5, DefaultItems.CLOSE);
+        inventory.getInventory().setItem(row - 9, DefaultItems.PREVIOUS);
+        inventory.getInventory().setItem(row - 1, DefaultItems.NEXT);
 
         return inventory;
     }

@@ -8,5 +8,3 @@ author: PolyRocketMatt
 commands:
   pencil:
     description: The main pencil command!
-  gui:
-    description: test
