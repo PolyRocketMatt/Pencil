@@ -58,6 +58,8 @@ public class DefaultInventories {
         pages.add(coral(8));
         pages.add(water(9));
         pages.add(nether(10));
+        pages.add(nether2(11));
+        pages.add(redStone(12));
 
         return new PagedInventory(pages);
     }
@@ -533,8 +535,6 @@ public class DefaultInventories {
                         .populate(21, new ItemStack(Material.BLACKSTONE_SLAB))
                         .populate(22, new ItemStack(Material.BLACKSTONE_WALL))
                         .populate(23, new ItemStack(Material.GILDED_BLACKSTONE))
-                        .populate(24, new ItemStack(Material.NETHERRACK))
-                        .populate(25, new ItemStack(Material.NETHER_WART_BLOCK))
                         .populate(28, new ItemStack(Material.POLISHED_BLACKSTONE))
                         .populate(29, new ItemStack(Material.POLISHED_BLACKSTONE_STAIRS))
                         .populate(30, new ItemStack(Material.POLISHED_BLACKSTONE_SLAB))
@@ -557,7 +557,82 @@ public class DefaultInventories {
         );
     }
 
+    private static CustomInventory nether2(int id) {
+        return new CustomInventory(
+                new HashMap<>() {{
+                    put(49, new CloseInventoryAction());
+                }},
+                InventoryFactory.paginate(InventoryFactory.ROWS_6, ChatColor.RED + "Nether")
+                        .populate(1, new ItemStack(Material.CRIMSON_NYLIUM))
+                        .populate(2, new ItemStack(Material.CRIMSON_STEM))
+                        .populate(3, new ItemStack(Material.CRIMSON_SLAB))
+                        .populate(5, new ItemStack(Material.WARPED_SLAB))
+                        .populate(6, new ItemStack(Material.WARPED_STEM))
+                        .populate(7, new ItemStack(Material.WARPED_NYLIUM))
+                        .populate(10, new ItemStack(Material.NETHER_WART_BLOCK))
+                        .populate(11, new ItemStack(Material.CRIMSON_HYPHAE))
+                        .populate(12, new ItemStack(Material.CRIMSON_STAIRS))
+                        .populate(14, new ItemStack(Material.WARPED_STAIRS))
+                        .populate(15, new ItemStack(Material.WARPED_HYPHAE))
+                        .populate(16, new ItemStack(Material.WARPED_WART_BLOCK))
+                        .populate(20, new ItemStack(Material.STRIPPED_CRIMSON_STEM))
+                        .populate(21, new ItemStack(Material.CRIMSON_FENCE))
+                        .populate(23, new ItemStack(Material.WARPED_FENCE))
+                        .populate(24, new ItemStack(Material.STRIPPED_WARPED_STEM))
+                        .populate(29, new ItemStack(Material.STRIPPED_CRIMSON_HYPHAE))
+                        .populate(30, new ItemStack(Material.CRIMSON_FENCE_GATE))
+                        .populate(31, new ItemStack(Material.SHROOMLIGHT))
+                        .populate(32, new ItemStack(Material.WARPED_FENCE_GATE))
+                        .populate(33, new ItemStack(Material.STRIPPED_WARPED_HYPHAE))
+                        .populate(38, new ItemStack(Material.CRIMSON_PLANKS))
+                        .populate(39, new ItemStack(Material.CRIMSON_TRAPDOOR))
+                        .populate(40, new ItemStack(Material.NETHERRACK))
+                        .populate(41, new ItemStack(Material.WARPED_TRAPDOOR))
+                        .populate(42, new ItemStack(Material.WARPED_PLANKS))
+                        .getInventory(),
+                "Nether",
+                6,
+                9,
+                id
+        );
+    }
 
+    private static CustomInventory redStone(int id) {
+        return new CustomInventory(
+                new HashMap<>() {{
+                    put(49, new CloseInventoryAction());
+                }},
+                InventoryFactory.paginate(InventoryFactory.ROWS_6, ChatColor.RED + "Nether")
+                        .populate(2, new ItemStack(Material.DAYLIGHT_DETECTOR))
+                        .populate(3, new ItemStack(Material.TARGET))
+                        .populate(4, new ItemStack(Material.LEVER))
+                        .populate(5, new ItemStack(Material.TRIPWIRE_HOOK))
+                        .populate(6, new ItemStack(Material.STRING))
+                        .populate(11, new ItemStack(Material.REDSTONE))
+                        .populate(12, new ItemStack(Material.REPEATER))
+                        .populate(13, new ItemStack(Material.COMPARATOR))
+                        .populate(14, new ItemStack(Material.REDSTONE_TORCH))
+                        .populate(15, new ItemStack(Material.OBSERVER))
+                        .populate(20, new ItemStack(Material.RAIL))
+                        .populate(21, new ItemStack(Material.DETECTOR_RAIL))
+                        .populate(22, new ItemStack(Material.IRON_TRAPDOOR))
+                        .populate(23, new ItemStack(Material.POWERED_RAIL))
+                        .populate(24, new ItemStack(Material.ACTIVATOR_RAIL))
+                        .populate(30, new ItemStack(Material.DROPPER))
+                        .populate(31, new ItemStack(Material.DISPENSER))
+                        .populate(32, new ItemStack(Material.HOPPER))
+                        .populate(38, new ItemStack(Material.STICKY_PISTON))
+                        .populate(39, new ItemStack(Material.PISTON))
+                        .populate(40, new ItemStack(Material.NOTE_BLOCK))
+                        .populate(41, new ItemStack(Material.TNT))
+                        .populate(42, new ItemStack(Material.REDSTONE_LAMP))
+                        .getInventory(),
+                "Nether",
+                6,
+                9,
+                id
+        );
+    }
     
     
 
