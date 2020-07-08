@@ -47,7 +47,7 @@ public class DefaultInventories {
     private static PagedInventory createMaterialPages() {
         List<CustomInventory> pages = new ArrayList<>();
 
-        pages.add(woodenBlocks(0));
+        pages.add(woodenBlocks(0)); //ok
         pages.add(woodenProducts(1));
         pages.add(stoneBlocks(2));
         pages.add(sand(3));
@@ -59,12 +59,17 @@ public class DefaultInventories {
         pages.add(water(9));
         pages.add(nether(10));
         pages.add(nether2(11));
-        pages.add(redStone(12));
+        pages.add(redstone(12));
+        pages.add(interior(13));
+        pages.add(end(14));
+        pages.add(nature(15));
+        pages.add(bedsAndBanners(16));
+        pages.add(valuables(17));
 
         return new PagedInventory(pages);
     }
 
-
+    
 
 
     private static CustomInventory woodenBlocks(int id) {
@@ -141,12 +146,12 @@ public class DefaultInventories {
                         .populate(32, new ItemStack(Material.JUNGLE_FENCE_GATE))
                         .populate(33, new ItemStack(Material.ACACIA_FENCE_GATE))
                         .populate(34, new ItemStack(Material.DARK_OAK_FENCE_GATE))
-                        .populate(37, new ItemStack(Material.OAK_LEAVES))
-                        .populate(38, new ItemStack(Material.SPRUCE_LEAVES))
-                        .populate(39, new ItemStack(Material.BIRCH_LEAVES))
-                        .populate(41, new ItemStack(Material.JUNGLE_LEAVES))
-                        .populate(42, new ItemStack(Material.ACACIA_LEAVES))
-                        .populate(43, new ItemStack(Material.DARK_OAK_LEAVES))
+                        .populate(37, new ItemStack(Material.OAK_TRAPDOOR))
+                        .populate(38, new ItemStack(Material.SPRUCE_TRAPDOOR))
+                        .populate(39, new ItemStack(Material.BIRCH_TRAPDOOR))
+                        .populate(41, new ItemStack(Material.JUNGLE_TRAPDOOR))
+                        .populate(42, new ItemStack(Material.ACACIA_TRAPDOOR))
+                        .populate(43, new ItemStack(Material.DARK_OAK_TRAPDOOR))
                         .getInventory(),
                 "Wood",
                 6,
@@ -489,18 +494,19 @@ public class DefaultInventories {
                         .populate(11, new ItemStack(Material.PRISMARINE_SLAB))
                         .populate(12, new ItemStack(Material.PRISMARINE_STAIRS))
                         .populate(13, new ItemStack(Material.PRISMARINE_WALL))
+                        .populate(14, new ItemStack(Material.SNOW_BLOCK))
                         .populate(15, new ItemStack(Material.SPONGE))
                         .populate(16, new ItemStack(Material.ICE))
                         .populate(19, new ItemStack(Material.PRISMARINE_BRICKS))
                         .populate(20, new ItemStack(Material.PRISMARINE_BRICK_SLAB))
                         .populate(21, new ItemStack(Material.PRISMARINE_BRICK_STAIRS))
+                        .populate(23, new ItemStack(Material.SNOW))
                         .populate(24, new ItemStack(Material.WET_SPONGE))
                         .populate(25, new ItemStack(Material.PACKED_ICE))
                         .populate(28, new ItemStack(Material.DARK_PRISMARINE))
                         .populate(29, new ItemStack(Material.DARK_PRISMARINE_SLAB))
                         .populate(30, new ItemStack(Material.DARK_PRISMARINE_STAIRS))
-                        .populate(32, new ItemStack(Material.SNOW))
-                        .populate(33, new ItemStack(Material.SNOW_BLOCK))
+                        .populate(33, new ItemStack(Material.CONDUIT))
                         .populate(34, new ItemStack(Material.BLUE_ICE))
                         .getInventory(),
                 "Water",
@@ -516,7 +522,7 @@ public class DefaultInventories {
                     put(49, new CloseInventoryAction());
                 }},
                 InventoryFactory.paginate(InventoryFactory.ROWS_6, ChatColor.RED + "Nether")
-                        .populate(1, new ItemStack(Material.NETHER_BRICK))
+                        .populate(1, new ItemStack(Material.NETHER_BRICKS))
                         .populate(2, new ItemStack(Material.NETHER_BRICK_STAIRS))
                         .populate(3, new ItemStack(Material.NETHER_BRICK_SLAB))
                         .populate(4, new ItemStack(Material.NETHER_BRICK_WALL))
@@ -527,14 +533,13 @@ public class DefaultInventories {
                         .populate(11, new ItemStack(Material.RED_NETHER_BRICK_STAIRS))
                         .populate(12, new ItemStack(Material.RED_NETHER_BRICK_SLAB))
                         .populate(13, new ItemStack(Material.RED_NETHER_BRICK_WALL))
-                        .populate(14, new ItemStack(Material.ENDER_CHEST))
                         .populate(15, new ItemStack(Material.SOUL_SAND))
+                        .populate(14, new ItemStack(Material.GILDED_BLACKSTONE))
                         .populate(16, new ItemStack(Material.SOUL_SOIL))
                         .populate(19, new ItemStack(Material.BLACKSTONE))
                         .populate(20, new ItemStack(Material.BLACKSTONE_STAIRS))
                         .populate(21, new ItemStack(Material.BLACKSTONE_SLAB))
                         .populate(22, new ItemStack(Material.BLACKSTONE_WALL))
-                        .populate(23, new ItemStack(Material.GILDED_BLACKSTONE))
                         .populate(28, new ItemStack(Material.POLISHED_BLACKSTONE))
                         .populate(29, new ItemStack(Material.POLISHED_BLACKSTONE_STAIRS))
                         .populate(30, new ItemStack(Material.POLISHED_BLACKSTONE_SLAB))
@@ -577,6 +582,7 @@ public class DefaultInventories {
                         .populate(16, new ItemStack(Material.WARPED_WART_BLOCK))
                         .populate(20, new ItemStack(Material.STRIPPED_CRIMSON_STEM))
                         .populate(21, new ItemStack(Material.CRIMSON_FENCE))
+                        .populate(22, new ItemStack(Material.MAGMA_BLOCK))
                         .populate(23, new ItemStack(Material.WARPED_FENCE))
                         .populate(24, new ItemStack(Material.STRIPPED_WARPED_STEM))
                         .populate(29, new ItemStack(Material.STRIPPED_CRIMSON_HYPHAE))
@@ -597,12 +603,12 @@ public class DefaultInventories {
         );
     }
 
-    private static CustomInventory redStone(int id) {
+    private static CustomInventory redstone(int id) {
         return new CustomInventory(
                 new HashMap<>() {{
                     put(49, new CloseInventoryAction());
                 }},
-                InventoryFactory.paginate(InventoryFactory.ROWS_6, ChatColor.RED + "Nether")
+                InventoryFactory.paginate(InventoryFactory.ROWS_6, ChatColor.RED + "Redstone")
                         .populate(2, new ItemStack(Material.DAYLIGHT_DETECTOR))
                         .populate(3, new ItemStack(Material.TARGET))
                         .populate(4, new ItemStack(Material.LEVER))
@@ -627,15 +633,246 @@ public class DefaultInventories {
                         .populate(41, new ItemStack(Material.TNT))
                         .populate(42, new ItemStack(Material.REDSTONE_LAMP))
                         .getInventory(),
-                "Nether",
+                "Redstone",
                 6,
                 9,
                 id
         );
     }
-    
-    
 
+    private static CustomInventory interior(int id) {
+        return new CustomInventory(
+                new HashMap<>() {{
+                    put(49, new CloseInventoryAction());
+                }},
+                InventoryFactory.paginate(InventoryFactory.ROWS_6, ChatColor.GRAY + "Interior")
+                        .populate(1, new ItemStack(Material.CRAFTING_TABLE))
+                        .populate(2, new ItemStack(Material.STONECUTTER))
+                        .populate(3, new ItemStack(Material.ENCHANTING_TABLE))
+                        .populate(4, new ItemStack(Material.GRINDSTONE))
+                        .populate(5, new ItemStack(Material.BREWING_STAND))
+                        .populate(6, new ItemStack(Material.CAULDRON))
+                        .populate(7, new ItemStack(Material.LOOM))
+                        .populate(10, new ItemStack(Material.COMPOSTER))
+                        .populate(11, new ItemStack(Material.JUKEBOX))
+                        .populate(12, new ItemStack(Material.SCAFFOLDING))
+                        .populate(13, new ItemStack(Material.BARREL))
+                        .populate(14, new ItemStack(Material.FURNACE))
+                        .populate(15, new ItemStack(Material.SMOKER))
+                        .populate(16, new ItemStack(Material.BLAST_FURNACE))
+                        .populate(19, new ItemStack(Material.LODESTONE))
+                        .populate(20, new ItemStack(Material.LECTERN))
+                        .populate(21, new ItemStack(Material.SMITHING_TABLE))
+                        .populate(22, new ItemStack(Material.CARTOGRAPHY_TABLE))
+                        .populate(23, new ItemStack(Material.BELL))
+                        .populate(24, new ItemStack(Material.FLETCHING_TABLE))
+                        .populate(25, new ItemStack(Material.BEACON))
+                        .populate(28, new ItemStack(Material.ANVIL))
+                        .populate(29, new ItemStack(Material.CHIPPED_ANVIL))
+                        .populate(30, new ItemStack(Material.DAMAGED_ANVIL))
+                        .populate(31, new ItemStack(Material.CHEST))
+                        .populate(32, new ItemStack(Material.TRAPPED_CHEST))
+                        .populate(33, new ItemStack(Material.ENDER_CHEST))
+                        .populate(34, new ItemStack(Material.BOOKSHELF))
+                        .populate(37, new ItemStack(Material.CLAY))
+                        .populate(38, new ItemStack(Material.BRICKS))
+                        .populate(39, new ItemStack(Material.BRICK_SLAB))
+                        .populate(40, new ItemStack(Material.BRICK_STAIRS))
+                        .populate(41, new ItemStack(Material.BRICK_WALL))
+                        .populate(42, new ItemStack(Material.CHAIN))
+                        .populate(43, new ItemStack(Material.IRON_BARS))
+                        .getInventory(),
+                "Interior",
+                6,
+                9,
+                id
+        );
+    }
+
+    private static CustomInventory end(int id) {
+        return new CustomInventory(
+                new HashMap<>() {{
+                    put(49, new CloseInventoryAction());
+                }},
+                InventoryFactory.paginate(InventoryFactory.ROWS_6, ChatColor.YELLOW + "End")
+                        .populate(1, new ItemStack(Material.SHULKER_BOX))
+                        .populate(2, new ItemStack(Material.WHITE_SHULKER_BOX))
+                        .populate(3, new ItemStack(Material.ORANGE_SHULKER_BOX))
+                        .populate(4, new ItemStack(Material.MAGENTA_SHULKER_BOX))
+                        .populate(5, new ItemStack(Material.LIGHT_BLUE_SHULKER_BOX))
+                        .populate(6, new ItemStack(Material.YELLOW_SHULKER_BOX))
+                        .populate(7, new ItemStack(Material.LIME_SHULKER_BOX))
+                        .populate(10, new ItemStack(Material.PINK_SHULKER_BOX))
+                        .populate(11, new ItemStack(Material.GRAY_SHULKER_BOX))
+                        .populate(12, new ItemStack(Material.LIGHT_GRAY_SHULKER_BOX))
+                        .populate(13, new ItemStack(Material.CYAN_SHULKER_BOX))
+                        .populate(14, new ItemStack(Material.PURPLE_SHULKER_BOX))
+                        .populate(15, new ItemStack(Material.BLUE_SHULKER_BOX))
+                        .populate(16, new ItemStack(Material.BROWN_SHULKER_BOX))
+                        .populate(19, new ItemStack(Material.GREEN_SHULKER_BOX))
+                        .populate(20, new ItemStack(Material.RED_SHULKER_BOX))
+                        .populate(21, new ItemStack(Material.BLACK_SHULKER_BOX))
+                        .populate(28, new ItemStack(Material.END_STONE))
+                        .populate(29, new ItemStack(Material.END_STONE_BRICKS))
+                        .populate(30, new ItemStack(Material.END_STONE_BRICK_SLAB))
+                        .populate(31, new ItemStack(Material.END_STONE_BRICK_STAIRS))
+                        .populate(32, new ItemStack(Material.END_STONE_BRICK_WALL))
+                        .populate(34, new ItemStack(Material.END_PORTAL_FRAME))
+                        .populate(37, new ItemStack(Material.PURPUR_PILLAR))
+                        .populate(38, new ItemStack(Material.PURPUR_BLOCK))
+                        .populate(39, new ItemStack(Material.PURPUR_SLAB))
+                        .populate(40, new ItemStack(Material.PURPUR_STAIRS))
+                        .populate(41, new ItemStack(Material.END_ROD))
+                        .populate(42, new ItemStack(Material.CHORUS_PLANT))
+                        .populate(43, new ItemStack(Material.CHORUS_FLOWER))
+                        .getInventory(),
+                "End",
+                6,
+                9,
+                id
+        );
+    }
+
+    private static CustomInventory nature(int id) {
+        return new CustomInventory(
+                new HashMap<>() {{
+                    put(49, new CloseInventoryAction());
+                }},
+                InventoryFactory.paginate(InventoryFactory.ROWS_6, ChatColor.GREEN + "Nature")
+                        .populate(1, new ItemStack(Material.GRASS_BLOCK))
+                        .populate(2, new ItemStack(Material.DIRT))
+                        .populate(3, new ItemStack(Material.COARSE_DIRT))
+                        .populate(4, new ItemStack(Material.BONE_BLOCK))
+                        .populate(5, new ItemStack(Material.PODZOL))
+                        .populate(6, new ItemStack(Material.MYCELIUM))
+                        .populate(7, new ItemStack(Material.GRASS_PATH))
+                        .populate(10, new ItemStack(Material.PUMPKIN))
+                        .populate(11, new ItemStack(Material.CARVED_PUMPKIN))
+                        .populate(12, new ItemStack(Material.JACK_O_LANTERN))
+                        .populate(13, new ItemStack(Material.MELON))
+                        .populate(14, new ItemStack(Material.MUSHROOM_STEM))
+                        .populate(15, new ItemStack(Material.BROWN_MUSHROOM_BLOCK))
+                        .populate(16, new ItemStack(Material.RED_MUSHROOM_BLOCK))
+                        .populate(19, new ItemStack(Material.OAK_LEAVES))
+                        .populate(20, new ItemStack(Material.BEE_NEST))
+                        .populate(21, new ItemStack(Material.BEEHIVE))
+                        .populate(22, new ItemStack(Material.SLIME_BLOCK))
+                        .populate(23, new ItemStack(Material.HONEY_BLOCK))
+                        .populate(24, new ItemStack(Material.HONEYCOMB_BLOCK))
+                        .populate(25, new ItemStack(Material.DARK_OAK_LEAVES))
+                        .populate(29, new ItemStack(Material.SPRUCE_LEAVES))
+                        .populate(30, new ItemStack(Material.HAY_BLOCK))
+                        .populate(31, new ItemStack(Material.TURTLE_EGG))
+                        .populate(32, new ItemStack(Material.DRIED_KELP_BLOCK))
+                        .populate(33, new ItemStack(Material.ACACIA_LEAVES))
+                        .populate(37, new ItemStack(Material.GRAVEL))
+                        .populate(39, new ItemStack(Material.BIRCH_LEAVES))
+                        .populate(40, new ItemStack(Material.COBWEB))
+                        .populate(41, new ItemStack(Material.JUNGLE_LEAVES))
+                        .populate(43, new ItemStack(Material.BEDROCK))
+                        .getInventory(),
+                "Nature",
+                6,
+                9,
+                id
+        );
+    }
+
+    
+    private static CustomInventory bedsAndBanners(int id) {
+        return new CustomInventory(
+                new HashMap<>() {{
+                    put(49, new CloseInventoryAction());
+                }},
+                InventoryFactory.paginate(InventoryFactory.ROWS_6, ChatColor.BLACK + "Wool")
+                        .populate(1, new ItemStack(Material.WHITE_BED))
+                        .populate(2, new ItemStack(Material.ORANGE_BED))
+                        .populate(3, new ItemStack(Material.MAGENTA_BED))
+                        .populate(4, new ItemStack(Material.LIGHT_BLUE_BED))
+                        .populate(5, new ItemStack(Material.YELLOW_BED))
+                        .populate(6, new ItemStack(Material.LIME_BED))
+                        .populate(7, new ItemStack(Material.PINK_BED))
+                        .populate(10, new ItemStack(Material.WHITE_BANNER))
+                        .populate(11, new ItemStack(Material.ORANGE_BANNER))
+                        .populate(12, new ItemStack(Material.MAGENTA_BANNER))
+                        .populate(13, new ItemStack(Material.LIGHT_BLUE_BANNER))
+                        .populate(14, new ItemStack(Material.YELLOW_BANNER))
+                        .populate(15, new ItemStack(Material.LIME_BANNER))
+                        .populate(16, new ItemStack(Material.PINK_BANNER))
+                        .populate(19, new ItemStack(Material.GRAY_BED))
+                        .populate(20, new ItemStack(Material.LIGHT_GRAY_BED))
+                        .populate(21, new ItemStack(Material.CYAN_BED))
+                        .populate(22, new ItemStack(Material.PURPLE_BED))
+                        .populate(23, new ItemStack(Material.BLUE_BED))
+                        .populate(24, new ItemStack(Material.BROWN_BED))
+                        .populate(25, new ItemStack(Material.GREEN_BED))
+                        .populate(28, new ItemStack(Material.GRAY_BANNER))
+                        .populate(29, new ItemStack(Material.LIGHT_GRAY_BANNER))
+                        .populate(30, new ItemStack(Material.CYAN_BANNER))
+                        .populate(31, new ItemStack(Material.PURPLE_BANNER))
+                        .populate(32, new ItemStack(Material.BLUE_BANNER))
+                        .populate(33, new ItemStack(Material.BROWN_BANNER))
+                        .populate(34, new ItemStack(Material.GREEN_BANNER))
+                        .populate(37, new ItemStack(Material.RED_BED))
+                        .populate(38, new ItemStack(Material.RED_BANNER))
+                        .populate(42, new ItemStack(Material.BLACK_BED))
+                        .populate(43, new ItemStack(Material.BLACK_BANNER))
+                        .getInventory(),
+                "Wool",
+                6,
+                9,
+                id
+        );
+    }
+
+    private static CustomInventory valuables(int id) {
+        return new CustomInventory(
+                new HashMap<>() {{
+                    put(49, new CloseInventoryAction());
+                }},
+                InventoryFactory.paginate(InventoryFactory.ROWS_6, ChatColor.BLACK + "Wool")
+                        .populate(1, new ItemStack(Material.COAL_ORE))
+                        .populate(2, new ItemStack(Material.IRON_ORE))
+                        .populate(3, new ItemStack(Material.GOLD_ORE))
+                        .populate(4, new ItemStack(Material.REDSTONE_ORE))
+                        .populate(5, new ItemStack(Material.LAPIS_ORE))
+                        .populate(6, new ItemStack(Material.DIAMOND_ORE))
+                        .populate(7, new ItemStack(Material.EMERALD_ORE))
+                        .populate(10, new ItemStack(Material.COAL_BLOCK))
+                        .populate(11, new ItemStack(Material.IRON_BLOCK))
+                        .populate(12, new ItemStack(Material.GOLD_BLOCK))
+                        .populate(13, new ItemStack(Material.REDSTONE_BLOCK))
+                        .populate(14, new ItemStack(Material.LAPIS_BLOCK))
+                        .populate(15, new ItemStack(Material.DIAMOND_BLOCK))
+                        .populate(16, new ItemStack(Material.EMERALD_BLOCK))
+                        .populate(22, new ItemStack(Material.NETHER_GOLD_ORE))
+                        .populate(29, new ItemStack(Material.NETHER_QUARTZ_ORE))
+                        .populate(30, new ItemStack(Material.QUARTZ_BLOCK))
+                        .populate(31, new ItemStack(Material.QUARTZ_SLAB))
+                        .populate(32, new ItemStack(Material.QUARTZ_STAIRS))
+                        .populate(33, new ItemStack(Material.QUARTZ_PILLAR))
+                        .populate(38, new ItemStack(Material.QUARTZ_BRICKS))
+                        .populate(39, new ItemStack(Material.SMOOTH_QUARTZ))
+                        .populate(40, new ItemStack(Material.SMOOTH_QUARTZ_SLAB))
+                        .populate(41, new ItemStack(Material.SMOOTH_QUARTZ_STAIRS))
+                        .populate(42, new ItemStack(Material.CHISELED_QUARTZ_BLOCK))
+                        .getInventory(),
+                "Wool",
+                6,
+                9,
+                id
+        );
+    }
+    /*
+        ?
+        LAVA
+        WATER
+        SPAWNER
+        HEADS
+        COMMAND BLOCKS
+        STRUCTURE BLOCKS
+
+     */
 
     /*
         MATERIAL_GUI
