@@ -46,38 +46,37 @@ public class DefaultInventories {
 
     private static PagedInventory createMaterialPages() {
         List<CustomInventory> pages = new ArrayList<>();
-
-        pages.add(woodenBlocks(0)); //ok
-        pages.add(woodenProducts(1));
-        pages.add(stoneBlocks(2));
-        pages.add(sand(3));
-        pages.add(glassBlocksAndPanes(4));
-        pages.add(terracotta(5));
-        pages.add(woolAndCarpet(6));
-        pages.add(concrete(7));
-        pages.add(coral(8));
-        pages.add(water(9));
-        pages.add(nether(10));
-        pages.add(nether2(11));
-        pages.add(redstone(12));
-        pages.add(interior(13));
-        pages.add(end(14));
-        pages.add(nature(15));
-        pages.add(bedsAndBanners(16));
-        pages.add(valuables(17));
+        
+        ChatColor titleColor = ChatColor.GOLD;
+        pages.add(woodenBlocks(0, titleColor, "Wood"));
+        pages.add(woodenProducts(1, titleColor, "Wooden Products"));
+        pages.add(stoneBlocks(2, titleColor, "Stone"));
+        pages.add(sand(3, titleColor, "Sand"));
+        pages.add(water(4, titleColor, "Water"));
+        pages.add(coral(5, titleColor, "Coral"));
+        pages.add(nature(6, titleColor, "Nature"));
+        pages.add(nether(7, titleColor, "Nether"));
+        pages.add(nether2(8, titleColor, "Nether Products"));
+        pages.add(end(9, titleColor, "End"));
+        pages.add(valuables(10, titleColor, "Valuables"));
+        pages.add(redstone(11, titleColor, "Redstone"));
+        pages.add(interior(12, titleColor, "Interior"));
+        pages.add(glassBlocksAndPanes(13, titleColor, "Glass"));
+        pages.add(woolAndCarpet(14, titleColor, "Wool"));
+        pages.add(bedsAndBanners(15, titleColor, "Beds and banners"));
+        pages.add(terracotta(16, titleColor, "Terracotta"));
+        pages.add(concrete(17, titleColor, "Concrete"));
 
         return new PagedInventory(pages);
     }
 
-    
 
-
-    private static CustomInventory woodenBlocks(int id) {
+    private static CustomInventory woodenBlocks(int id, ChatColor color, String name) {
         return new CustomInventory(
                 new HashMap<>() {{
                     put(49, new CloseInventoryAction());
                 }},
-                InventoryFactory.paginate(InventoryFactory.ROWS_6, ChatColor.GOLD + "Wood")
+                InventoryFactory.paginate(InventoryFactory.ROWS_6, color + name)
                         .populate(1, new ItemStack(Material.OAK_LOG))
                         .populate(2, new ItemStack(Material.SPRUCE_LOG))
                         .populate(3, new ItemStack(Material.BIRCH_LOG))
@@ -109,19 +108,19 @@ public class DefaultInventories {
                         .populate(42, new ItemStack(Material.ACACIA_PLANKS))
                         .populate(43, new ItemStack(Material.DARK_OAK_PLANKS))
                         .getInventory(),
-                "Wood",
+                name,
                 6,
                 9,
                 id
         );
     }
 
-    private static CustomInventory woodenProducts(int id) {
+    private static CustomInventory woodenProducts(int id, ChatColor color, String name) {
         return new CustomInventory(
                 new HashMap<>() {{
                     put(49, new CloseInventoryAction());
                 }},
-                InventoryFactory.paginate(InventoryFactory.ROWS_6, ChatColor.GOLD + "Wood")
+                InventoryFactory.paginate(InventoryFactory.ROWS_6, color + name)
                         .populate(1, new ItemStack(Material.OAK_SLAB))
                         .populate(2, new ItemStack(Material.SPRUCE_SLAB))
                         .populate(3, new ItemStack(Material.BIRCH_SLAB))
@@ -153,19 +152,19 @@ public class DefaultInventories {
                         .populate(42, new ItemStack(Material.ACACIA_TRAPDOOR))
                         .populate(43, new ItemStack(Material.DARK_OAK_TRAPDOOR))
                         .getInventory(),
-                "Wood",
+                name,
                 6,
                 9,
                 id
         );
     }
 
-    private static CustomInventory stoneBlocks(int id) {
+    private static CustomInventory stoneBlocks(int id, ChatColor color, String name) {
         return new CustomInventory(
                 new HashMap<>() {{
                     put(49, new CloseInventoryAction());
                 }},
-                InventoryFactory.paginate(InventoryFactory.ROWS_6, ChatColor.GRAY + "Stone")
+                InventoryFactory.paginate(InventoryFactory.ROWS_6, color + name)
                         .populate(0, new ItemStack(Material.SMOOTH_STONE))
                         .populate(1, new ItemStack(Material.STONE))
                         .populate(2, new ItemStack(Material.GRANITE))
@@ -210,19 +209,19 @@ public class DefaultInventories {
                         .populate(42, new ItemStack(Material.MOSSY_COBBLESTONE_SLAB))
                         .populate(43, new ItemStack(Material.CRACKED_STONE_BRICKS))
                         .getInventory(),
-                "Stone",
+                name,
                 6,
                 9,
                 id
         );
     }
 
-    private static CustomInventory sand(int id) {
+    private static CustomInventory sand(int id, ChatColor color, String name) {
         return new CustomInventory(
                 new HashMap<>() {{
                     put(49, new CloseInventoryAction());
                 }},
-                InventoryFactory.paginate(InventoryFactory.ROWS_6, ChatColor.YELLOW + "Sand")
+                InventoryFactory.paginate(InventoryFactory.ROWS_6, color + name)
                         .populate(1, new ItemStack(Material.SANDSTONE))
                         .populate(2, new ItemStack(Material.SMOOTH_SANDSTONE))
                         .populate(3, new ItemStack(Material.CUT_SANDSTONE))
@@ -246,19 +245,19 @@ public class DefaultInventories {
                         .populate(32, new ItemStack(Material.CHISELED_RED_SANDSTONE))
                         .populate(33, new ItemStack(Material.RED_SAND))
                         .getInventory(),
-                "Sand",
+                name,
                 6,
                 9,
                 id
         );
     }
 
-    private static CustomInventory glassBlocksAndPanes(int id) {
+    private static CustomInventory glassBlocksAndPanes(int id, ChatColor color, String name) {
         return new CustomInventory(
                 new HashMap<>() {{
                     put(49, new CloseInventoryAction());
                 }},
-                InventoryFactory.paginate(InventoryFactory.ROWS_6, ChatColor.BLACK + "Glass")
+                InventoryFactory.paginate(InventoryFactory.ROWS_6, color + name)
                         .populate(1, new ItemStack(Material.GLASS))
                         .populate(2, new ItemStack(Material.WHITE_STAINED_GLASS))
                         .populate(3, new ItemStack(Material.ORANGE_STAINED_GLASS))
@@ -294,19 +293,19 @@ public class DefaultInventories {
                         .populate(42, new ItemStack(Material.BLACK_STAINED_GLASS))
                         .populate(43, new ItemStack(Material.BLACK_STAINED_GLASS_PANE))
                         .getInventory(),
-                "Glass",
+                name,
                 6,
                 9,
                 id
         );
     }
 
-    private static CustomInventory terracotta(int id) {
+    private static CustomInventory terracotta(int id, ChatColor color, String name) {
         return new CustomInventory(
                 new HashMap<>() {{
                     put(49, new CloseInventoryAction());
                 }},
-                InventoryFactory.paginate(InventoryFactory.ROWS_6, ChatColor.BLACK + "Terracotta")
+                InventoryFactory.paginate(InventoryFactory.ROWS_6, color + name)
                         .populate(1, new ItemStack(Material.WHITE_TERRACOTTA))
                         .populate(2, new ItemStack(Material.ORANGE_TERRACOTTA))
                         .populate(3, new ItemStack(Material.MAGENTA_TERRACOTTA))
@@ -341,19 +340,19 @@ public class DefaultInventories {
                         .populate(42, new ItemStack(Material.BLACK_TERRACOTTA))
                         .populate(43, new ItemStack(Material.BLACK_GLAZED_TERRACOTTA))
                         .getInventory(),
-                "Terracotta",
+                name,
                 6,
                 9,
                 id
         );
     }
 
-    private static CustomInventory woolAndCarpet(int id) {
+    private static CustomInventory woolAndCarpet(int id, ChatColor color, String name) {
         return new CustomInventory(
                 new HashMap<>() {{
                     put(49, new CloseInventoryAction());
                 }},
-                InventoryFactory.paginate(InventoryFactory.ROWS_6, ChatColor.BLACK + "Wool")
+                InventoryFactory.paginate(InventoryFactory.ROWS_6, color + name)
                         .populate(1, new ItemStack(Material.WHITE_WOOL))
                         .populate(2, new ItemStack(Material.ORANGE_WOOL))
                         .populate(3, new ItemStack(Material.MAGENTA_WOOL))
@@ -387,19 +386,19 @@ public class DefaultInventories {
                         .populate(42, new ItemStack(Material.BLACK_WOOL))
                         .populate(43, new ItemStack(Material.BLACK_CARPET))
                         .getInventory(),
-                "Wool",
+                name,
                 6,
                 9,
                 id
         );
     }
 
-    private static CustomInventory concrete(int id) {
+    private static CustomInventory concrete(int id, ChatColor color, String name) {
         return new CustomInventory(
                 new HashMap<>() {{
                     put(49, new CloseInventoryAction());
                 }},
-                InventoryFactory.paginate(InventoryFactory.ROWS_6, ChatColor.BLACK + "Concrete")
+                InventoryFactory.paginate(InventoryFactory.ROWS_6, color + name)
                         .populate(1, new ItemStack(Material.WHITE_CONCRETE))
                         .populate(2, new ItemStack(Material.ORANGE_CONCRETE))
                         .populate(3, new ItemStack(Material.MAGENTA_CONCRETE))
@@ -433,19 +432,19 @@ public class DefaultInventories {
                         .populate(42, new ItemStack(Material.BLACK_CONCRETE))
                         .populate(43, new ItemStack(Material.BLACK_CONCRETE_POWDER))
                         .getInventory(),
-                "Concrete",
+                name,
                 6,
                 9,
                 id
         );
     }
 
-    private static CustomInventory coral(int id) {
+    private static CustomInventory coral(int id, ChatColor color, String name) {
         return new CustomInventory(
                 new HashMap<>() {{
                     put(49, new CloseInventoryAction());
                 }},
-                InventoryFactory.paginate(InventoryFactory.ROWS_6, ChatColor.BLUE + "Coral")
+                InventoryFactory.paginate(InventoryFactory.ROWS_6, color + name)
                         .populate(1, new ItemStack(Material.FIRE_CORAL_BLOCK))
                         .populate(2, new ItemStack(Material.FIRE_CORAL))
                         .populate(3, new ItemStack(Material.FIRE_CORAL_FAN))
@@ -477,19 +476,19 @@ public class DefaultInventories {
                         .populate(42, new ItemStack(Material.DEAD_TUBE_CORAL))
                         .populate(43, new ItemStack(Material.DEAD_TUBE_CORAL_FAN))
                         .getInventory(),
-                "Coral",
+                name,
                 6,
                 9,
                 id
         );
     }
 
-    private static CustomInventory water(int id) {
+    private static CustomInventory water(int id, ChatColor color, String name) {
         return new CustomInventory(
                 new HashMap<>() {{
                     put(49, new CloseInventoryAction());
                 }},
-                InventoryFactory.paginate(InventoryFactory.ROWS_6, ChatColor.BLUE + "Water")
+                InventoryFactory.paginate(InventoryFactory.ROWS_6, color + name)
                         .populate(10, new ItemStack(Material.PRISMARINE))
                         .populate(11, new ItemStack(Material.PRISMARINE_SLAB))
                         .populate(12, new ItemStack(Material.PRISMARINE_STAIRS))
@@ -509,19 +508,19 @@ public class DefaultInventories {
                         .populate(33, new ItemStack(Material.CONDUIT))
                         .populate(34, new ItemStack(Material.BLUE_ICE))
                         .getInventory(),
-                "Water",
+                name,
                 6,
                 9,
                 id
         );
     }
 
-    private static CustomInventory nether(int id) {
+    private static CustomInventory nether(int id, ChatColor color, String name) {
         return new CustomInventory(
                 new HashMap<>() {{
                     put(49, new CloseInventoryAction());
                 }},
-                InventoryFactory.paginate(InventoryFactory.ROWS_6, ChatColor.RED + "Nether")
+                InventoryFactory.paginate(InventoryFactory.ROWS_6, color + name)
                         .populate(1, new ItemStack(Material.NETHER_BRICKS))
                         .populate(2, new ItemStack(Material.NETHER_BRICK_STAIRS))
                         .populate(3, new ItemStack(Material.NETHER_BRICK_SLAB))
@@ -555,19 +554,19 @@ public class DefaultInventories {
                         .populate(42, new ItemStack(Material.NETHERITE_BLOCK))
                         .populate(43, new ItemStack(Material.ANCIENT_DEBRIS))
                         .getInventory(),
-                "Nether",
+                name,
                 6,
                 9,
                 id
         );
     }
 
-    private static CustomInventory nether2(int id) {
+    private static CustomInventory nether2(int id, ChatColor color, String name) {
         return new CustomInventory(
                 new HashMap<>() {{
                     put(49, new CloseInventoryAction());
                 }},
-                InventoryFactory.paginate(InventoryFactory.ROWS_6, ChatColor.RED + "Nether")
+                InventoryFactory.paginate(InventoryFactory.ROWS_6, color + name)
                         .populate(1, new ItemStack(Material.CRIMSON_NYLIUM))
                         .populate(2, new ItemStack(Material.CRIMSON_STEM))
                         .populate(3, new ItemStack(Material.CRIMSON_SLAB))
@@ -596,19 +595,19 @@ public class DefaultInventories {
                         .populate(41, new ItemStack(Material.WARPED_TRAPDOOR))
                         .populate(42, new ItemStack(Material.WARPED_PLANKS))
                         .getInventory(),
-                "Nether",
+                name,
                 6,
                 9,
                 id
         );
     }
 
-    private static CustomInventory redstone(int id) {
+    private static CustomInventory redstone(int id, ChatColor color, String name) {
         return new CustomInventory(
                 new HashMap<>() {{
                     put(49, new CloseInventoryAction());
                 }},
-                InventoryFactory.paginate(InventoryFactory.ROWS_6, ChatColor.RED + "Redstone")
+                InventoryFactory.paginate(InventoryFactory.ROWS_6, color + name)
                         .populate(2, new ItemStack(Material.DAYLIGHT_DETECTOR))
                         .populate(3, new ItemStack(Material.TARGET))
                         .populate(4, new ItemStack(Material.LEVER))
@@ -633,19 +632,19 @@ public class DefaultInventories {
                         .populate(41, new ItemStack(Material.TNT))
                         .populate(42, new ItemStack(Material.REDSTONE_LAMP))
                         .getInventory(),
-                "Redstone",
+                name,
                 6,
                 9,
                 id
         );
     }
 
-    private static CustomInventory interior(int id) {
+    private static CustomInventory interior(int id, ChatColor color, String name) {
         return new CustomInventory(
                 new HashMap<>() {{
                     put(49, new CloseInventoryAction());
                 }},
-                InventoryFactory.paginate(InventoryFactory.ROWS_6, ChatColor.GRAY + "Interior")
+                InventoryFactory.paginate(InventoryFactory.ROWS_6, color + name)
                         .populate(1, new ItemStack(Material.CRAFTING_TABLE))
                         .populate(2, new ItemStack(Material.STONECUTTER))
                         .populate(3, new ItemStack(Material.ENCHANTING_TABLE))
@@ -682,19 +681,19 @@ public class DefaultInventories {
                         .populate(42, new ItemStack(Material.CHAIN))
                         .populate(43, new ItemStack(Material.IRON_BARS))
                         .getInventory(),
-                "Interior",
+                name,
                 6,
                 9,
                 id
         );
     }
 
-    private static CustomInventory end(int id) {
+    private static CustomInventory end(int id, ChatColor color, String name) {
         return new CustomInventory(
                 new HashMap<>() {{
                     put(49, new CloseInventoryAction());
                 }},
-                InventoryFactory.paginate(InventoryFactory.ROWS_6, ChatColor.YELLOW + "End")
+                InventoryFactory.paginate(InventoryFactory.ROWS_6, color + name)
                         .populate(1, new ItemStack(Material.SHULKER_BOX))
                         .populate(2, new ItemStack(Material.WHITE_SHULKER_BOX))
                         .populate(3, new ItemStack(Material.ORANGE_SHULKER_BOX))
@@ -726,19 +725,19 @@ public class DefaultInventories {
                         .populate(42, new ItemStack(Material.CHORUS_PLANT))
                         .populate(43, new ItemStack(Material.CHORUS_FLOWER))
                         .getInventory(),
-                "End",
+                name,
                 6,
                 9,
                 id
         );
     }
 
-    private static CustomInventory nature(int id) {
+    private static CustomInventory nature(int id, ChatColor color, String name) {
         return new CustomInventory(
                 new HashMap<>() {{
                     put(49, new CloseInventoryAction());
                 }},
-                InventoryFactory.paginate(InventoryFactory.ROWS_6, ChatColor.GREEN + "Nature")
+                InventoryFactory.paginate(InventoryFactory.ROWS_6, color + name)
                         .populate(1, new ItemStack(Material.GRASS_BLOCK))
                         .populate(2, new ItemStack(Material.DIRT))
                         .populate(3, new ItemStack(Material.COARSE_DIRT))
@@ -771,20 +770,19 @@ public class DefaultInventories {
                         .populate(41, new ItemStack(Material.JUNGLE_LEAVES))
                         .populate(43, new ItemStack(Material.BEDROCK))
                         .getInventory(),
-                "Nature",
+                name,
                 6,
                 9,
                 id
         );
     }
-
     
-    private static CustomInventory bedsAndBanners(int id) {
+    private static CustomInventory bedsAndBanners(int id, ChatColor color, String name) {
         return new CustomInventory(
                 new HashMap<>() {{
                     put(49, new CloseInventoryAction());
                 }},
-                InventoryFactory.paginate(InventoryFactory.ROWS_6, ChatColor.BLACK + "Wool")
+                InventoryFactory.paginate(InventoryFactory.ROWS_6, color + name)
                         .populate(1, new ItemStack(Material.WHITE_BED))
                         .populate(2, new ItemStack(Material.ORANGE_BED))
                         .populate(3, new ItemStack(Material.MAGENTA_BED))
@@ -818,19 +816,19 @@ public class DefaultInventories {
                         .populate(42, new ItemStack(Material.BLACK_BED))
                         .populate(43, new ItemStack(Material.BLACK_BANNER))
                         .getInventory(),
-                "Wool",
+                name,
                 6,
                 9,
                 id
         );
     }
 
-    private static CustomInventory valuables(int id) {
+    private static CustomInventory valuables(int id, ChatColor color, String name) {
         return new CustomInventory(
                 new HashMap<>() {{
                     put(49, new CloseInventoryAction());
                 }},
-                InventoryFactory.paginate(InventoryFactory.ROWS_6, ChatColor.BLACK + "Wool")
+                InventoryFactory.paginate(InventoryFactory.ROWS_6, color + name)
                         .populate(1, new ItemStack(Material.COAL_ORE))
                         .populate(2, new ItemStack(Material.IRON_ORE))
                         .populate(3, new ItemStack(Material.GOLD_ORE))
@@ -857,7 +855,7 @@ public class DefaultInventories {
                         .populate(41, new ItemStack(Material.SMOOTH_QUARTZ_STAIRS))
                         .populate(42, new ItemStack(Material.CHISELED_QUARTZ_BLOCK))
                         .getInventory(),
-                "Wool",
+                name,
                 6,
                 9,
                 id
