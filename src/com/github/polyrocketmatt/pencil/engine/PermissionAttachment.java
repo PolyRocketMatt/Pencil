@@ -101,4 +101,10 @@ public class PermissionAttachment {
         return splits;
     }
 
+    @Override
+    public String toString() {
+        return "PermissionAttachment{" +
+                "permissions=" + permissions +
+                '}';
+    }
 }

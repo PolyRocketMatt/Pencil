@@ -88,9 +88,15 @@ public class PermissionService extends Service {
     }
 
     @Override
+    public String toString() {
+        return "PermissionService{" +
+                "permissions=" + permissions +
+                ", readStorage=" + readStorage +
+                '}';
+    }
+
+    @Override
     public String dump() {
-        /* TODO: - Dump all players with their respective permissions in a concise format
-         */
-        return "";
+        return this.toString();
     }
 }
